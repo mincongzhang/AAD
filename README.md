@@ -2,7 +2,11 @@
 
 ### Forward Mode (using Dual Number)
 
+TODO: add background
+
 ### Backward Mode (using expression tree and back propagation)
+
+TODO: add background
 
 ### References
 
