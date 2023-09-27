@@ -1,27 +1,26 @@
-
 #include <iostream>
 #include <vector>
 #include <unordered_map>
 #include <memory>
 #include <functional>
+#include <cmath>
 
 class Var
 {
 
 public:
 
+	using ExpFunc = std::function< double( const Var *, const Var * ) >;
 	class Expression
 	{
-		private:
-
-		using ExpFunc = std::function< double (Var *, Var * ) >;
+	private:
 		ExpFunc func;
-		Var * input_x;
-		Var * input_y;
+		const Var * input_x;
+		const Var * input_y;
 
-		public:
+	public:
 
-		Expression( ExpFunc f, Var * x, Var * y ) : func( f ), input_x( x ), input_y( y ) {}
+		Expression( ExpFunc f, const Var * x, const  Var * y ) : func( f ), input_x( x ), input_y( y ) { }
 		double eval() const
 		{
 			return func( input_x, input_y );
@@ -32,16 +31,16 @@ public:
 	Var( double val = 0.0 ) : m_val( val ), m_grad( 1.0 )
 	{
 
-		auto init_val_exp = [ ]( Var * x, Var * y ) {
-				return x->getVal();
-			};
+		auto init_val_exp = []( const Var * x, const Var * y ) {
+			return x->getVal();
+		};
 		m_val_expressions.emplace_back( Expression( init_val_exp, this, nullptr ) );
 
-		auto init_grad_exp = [ ]( Var * x, Var * y )
-			{
-				return 1;
-			};
-		m_grad_expressions[ this ] = std::vector< Expression >{ Expression( init_grad_exp, this, nullptr ) };
+		auto init_grad_exp = []( const  Var * x, const Var * y )
+		{
+			return 1;
+		};
+		m_grad_expressions[this] = std::vector< Expression > { Expression( init_grad_exp, this, nullptr ) };
 	}
 
 	void addValExpression( const Expression exp )
@@ -54,7 +53,7 @@ public:
 		auto it = m_grad_expressions.find( ptr );
 		if( it != m_grad_expressions.end() )
 		{
-			it->second.emplace_back(exp);
+			it->second.emplace_back( exp );
 		}
 		else
 		{
@@ -84,17 +83,17 @@ public:
 	double getVal() const
 	{
 		double res = 0.0;
-		for(const auto & exp : m_val_expressions )
+		for( const auto & exp : m_val_expressions )
 		{
 			res += exp.eval();
 		}
 		return res;
 	}
-	
+
 	double getGrad( const Var & on_input ) const
 	{
 		double res = 0.0;
-		
+
 		auto it = m_grad_expressions.find( &on_input );
 		if( it != m_grad_expressions.end() )
 		{
@@ -112,8 +111,8 @@ public:
 	{
 		Var z;
 
-		for( auto & [ptr, exps] : m_grad_expressions )
-		{ 
+		for( auto &[ptr, exps] : m_grad_expressions )
+		{
 			z.addGradExpression( ptr, exps );
 		}
 		for( auto &[ptr, exps] : other.m_grad_expressions )
@@ -121,6 +120,49 @@ public:
 			z.addGradExpression( ptr, exps );
 		}
 
+		return std::move( z );	//in case RVO is not enabled
+	}
+
+	Var operator*( const Var & other )
+	{
+		Var z;
+
+		for( auto &[ptr, exps] : m_grad_expressions )
+		{
+			for( auto & exp : exps ) {
+				auto mult_func = [exp]( const Var * x, const Var * y ) {
+					return y ? exp.eval() * y->getVal() : 0;
+				};
+				z.addGradExpression( ptr, Expression(mult_func, this, &other) );
+			}
+		}
+		for( auto &[ptr, exps] : other.m_grad_expressions )
+		{
+			for( auto & exp : exps )
+			{
+				auto mult_func = [exp]( const Var * x, const Var * y ) {
+					return x ? exp.eval() * x->getVal() : 0;
+				};
+				z.addGradExpression( ptr, Expression( mult_func, this, &other ) );
+			}
+		}
+
+		return std::move( z );	//in case RVO is not enabled
+	}
+
+	static Var sin( const Var & v )
+	{
+		Var z;
+		for( auto &[ptr, exps] : v.m_grad_expressions )
+		{
+			for( auto & exp : exps )
+			{
+				auto mult_func = [exp]( const Var * x, const Var * y ) {
+					return x ? exp.eval() * std::cos(x->getVal()) : 0;
+				};
+				z.addGradExpression( ptr, Expression( mult_func, &v, nullptr ) );
+			}
+		}
 		return std::move( z );	//in case RVO is not enabled
 	}
 
