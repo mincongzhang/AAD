@@ -43,6 +43,8 @@ Dual func_to_deriv(Dual x)
 int main()
 {
     Dual d(0.0, 1.0);
-    std::cout<<func_to_deriv(Dual(3.0) + d).deriv()<<std::endl;
+    Dual x(3.0);
+    Dual y = func_to_deriv(x + d);
+    std::cout<<y.deriv()<<std::endl;
     return 0;
 };
