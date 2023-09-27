@@ -213,8 +213,8 @@ int main()
     y.setVal(4);
     
     assert(std::abs(z.val() - 8.9093) < 0.0001);
-    assert(std::abs(z.derivOn(x) - 3.58385) < 0.001);
-    assert(std::abs(z.derivOn(y) - 2) < 0.001);
+    assert(std::abs(z.derivOn(x) - 3.58385) < 0.0001);
+    assert(std::abs(z.derivOn(y) - 2) < 0.0001);
     
     std::cout<<"z val:"<<z.val()<<std::endl;
     std::cout<<"dz/dx:"<<z.derivOn(x)<<std::endl;
