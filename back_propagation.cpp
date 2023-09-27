@@ -84,7 +84,7 @@ public:
         return m_val;
     }
 
-	double Val() const
+	double val() const
 	{
 		double res = 0.0;
 		for( const auto & exp : m_val_expressions )
@@ -94,7 +94,7 @@ public:
 		return res;
 	}
 
-	double DerivOn( const Var & on_input ) const
+	double derivOn( const Var & on_input ) const
 	{
 		double res = 0.0;
 
@@ -116,7 +116,7 @@ public:
 		Var z;
 		
     	auto val_func = []( const Var * x, const Var * y ) {
-				return  x && y ? x->Val() + y->Val() : 0;
+				return  x && y ? x->val() + y->val() : 0;
 			};
 		z.addValExpression(Expression(val_func, this, &other));
 
@@ -137,7 +137,7 @@ public:
 		Var z;
 		
 		auto val_func = []( const Var * x, const Var * y ) {
-				return  x && y ? x->Val() * y->Val() : 0;
+				return  x && y ? x->val() * y->val() : 0;
 			};
 		z.addValExpression(Expression(val_func, this, &other));
 
@@ -145,7 +145,7 @@ public:
 		{
 			for( auto & exp : exps ) {
 				auto mult_func = [exp]( const Var * x, const Var * y ) {
-					return y ? exp.eval() * y->Val() : 0;
+					return y ? exp.eval() * y->val() : 0;
 				};
 				z.addGradExpression( ptr, Expression(mult_func, this, &other) );
 			}
@@ -155,7 +155,7 @@ public:
 			for( auto & exp : exps )
 			{
 				auto mult_func = [exp]( const Var * x, const Var * y ) {
-					return x ? exp.eval() * x->Val() : 0;
+					return x ? exp.eval() * x->val() : 0;
 				};
 				z.addGradExpression( ptr, Expression( mult_func, this, &other ) );
 			}
@@ -169,7 +169,7 @@ public:
 		Var z;
 		
 		auto val_func = []( const Var * x, const Var * y ) {
-				return  x ? std::sin(x->Val()) : 0;
+				return  x ? std::sin(x->val()) : 0;
 			};
 		z.addValExpression(Expression(val_func, &v, nullptr));
 		
@@ -178,7 +178,7 @@ public:
 			for( auto & exp : exps )
 			{
 				auto mult_func = [exp]( const Var * x, const Var * y ) {
-					return x ? exp.eval() * std::cos(x->Val()) : 0;
+					return x ? exp.eval() * std::cos(x->val()) : 0;
 				};
 				z.addGradExpression( ptr, Expression( mult_func, &v, nullptr ) );
 			}
@@ -201,10 +201,11 @@ int main()
     Var x;
     Var y;
     Var z = x*y + Var::sin(x);
+    
     x.setVal(2);
     y.setVal(4);
-    std::cout<<"z val:"<<z.Val()<<std::endl;
-    std::cout<<"dz/dx:"<<z.DerivOn(x)<<std::endl;
-    std::cout<<"dz/dy:"<<z.DerivOn(y)<<std::endl;
+    std::cout<<"z val:"<<z.val()<<std::endl;
+    std::cout<<"dz/dx:"<<z.derivOn(x)<<std::endl;
+    std::cout<<"dz/dy:"<<z.derivOn(y)<<std::endl;
     return 0;
 }
