@@ -1,4 +1,4 @@
-# AAD
+# Automatic Differentiation Proof of Concept
 
 ### References
 
