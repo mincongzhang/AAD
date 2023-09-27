@@ -5,10 +5,21 @@
 Example:
 
 ```
+Dual func_to_deriv(Dual x)
+{
+    return (x + Dual(2.0, 0.0)) * (x + Dual(1.0, 0.0));
+}
+
+int main()
+{
     Dual d(0.0, 1.0);
     Dual x(3.0);
     Dual y = func_to_deriv(x + d);
-    std::cout<<y.deriv()<<std::endl;  // 9
+    
+    assert(std::abs(y.deriv() - 9.0) < 0.0001);
+    
+    return 0;
+};
 ```
 
 ### Backward Mode (using expression tree and back propagation)
