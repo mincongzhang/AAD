@@ -1,5 +1,9 @@
 # Automatic Differentiation Proof of Concept
 
+### Forward Mode (using Dual Number)
+
+### Backward Mode (using expression tree and back propagation)
+
 ### References
 
 https://web.archive.org/web/20050315101043/http://homepage.mac.com/sigfpe/paper.pdf
