@@ -1,3 +1,6 @@
+
+#include <iostream>
+
 #include <iostream>
 #include <vector>
 #include <unordered_map>
@@ -82,9 +85,11 @@ public:
 
 	double getVal() const
 	{
+	    std::cout<<"get val"<<std::endl;
 		double res = 0.0;
 		for( const auto & exp : m_val_expressions )
 		{
+		    std::cout<<"val:"<<res<<std::endl;
 			res += exp.eval();
 		}
 		return res;
@@ -109,22 +114,27 @@ public:
 
 	Var operator+( const Var & other )
 	{
+	    std::cout<<"add"<<std::endl;
 		Var z;
 
 		for( auto &[ptr, exps] : m_grad_expressions )
 		{
+		    std::cout<<"loop self"<<std::endl;
 			z.addGradExpression( ptr, exps );
 		}
 		for( auto &[ptr, exps] : other.m_grad_expressions )
 		{
+		    std::cout<<"loop other"<<std::endl;
 			z.addGradExpression( ptr, exps );
 		}
 
+        std::cout<<"return z"<<std::endl;
 		return std::move( z );	//in case RVO is not enabled
 	}
 
 	Var operator*( const Var & other )
 	{
+	    std::cout<<"multi"<<std::endl;
 		Var z;
 
 		for( auto &[ptr, exps] : m_grad_expressions )
@@ -152,6 +162,7 @@ public:
 
 	static Var sin( const Var & v )
 	{
+	    std::cout<<"sin"<<std::endl;
 		Var z;
 		for( auto &[ptr, exps] : v.m_grad_expressions )
 		{
@@ -175,3 +186,16 @@ private:
 	std::unordered_map< const Var *, std::vector< Expression > > m_grad_expressions;
 
 };
+
+int main()
+{
+    std::cout<<"start"<<std::endl;
+    Var x;
+    Var y;
+    Var z = x*y + Var::sin(x);
+    x.setVal(2);
+    y.setVal(4);
+    std::cout<<"z:"<<z.getVal()<<std::endl;
+
+    return 0;
+}
