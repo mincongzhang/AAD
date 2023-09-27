@@ -8,7 +8,7 @@ Example:
     Dual d(0.0, 1.0);
     Dual x(3.0);
     Dual y = func_to_deriv(x + d);
-    std::cout<<y.deriv()<<std::endl;
+    std::cout<<y.deriv()<<std::endl;  // 9
 ```
 
 ### Backward Mode (using expression tree and back propagation)
@@ -21,9 +21,9 @@ Example:
     
     x.setVal(2);
     y.setVal(4);
-    std::cout<<"z val:"<<z.val()<<std::endl;
-    std::cout<<"dz/dx:"<<z.derivOn(x)<<std::endl;
-    std::cout<<"dz/dy:"<<z.derivOn(y)<<std::endl;
+    std::cout<<"z:"<<z.val()<<std::endl;            //z:8.9093
+    std::cout<<"dz/dx:"<<z.derivOn(x)<<std::endl;   //dz/dx:3.58385
+    std::cout<<"dz/dy:"<<z.derivOn(y)<<std::endl;   /dz/dy:2
 ```
 
 ### References
