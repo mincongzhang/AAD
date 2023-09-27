@@ -1,10 +1,6 @@
-
-#include <iostream>
-
 #include <iostream>
 #include <vector>
 #include <unordered_map>
-#include <memory>
 #include <functional>
 #include <cmath>
 
@@ -46,7 +42,7 @@ public:
 		m_grad_expressions[this] = std::vector< Expression > { Expression( init_grad_exp, this, nullptr ) };
 	}
 
-	void addValExpression( const Expression exp )
+	void addValExpression( const Expression & exp )
 	{
 		m_val_expressions.emplace_back( exp );
 	}
@@ -83,19 +79,22 @@ public:
 		m_val = val;
 	}
 
-	double getVal() const
+    double getVal() const
+    {
+        return m_val;
+    }
+
+	double Val() const
 	{
-	    std::cout<<"get val"<<std::endl;
 		double res = 0.0;
 		for( const auto & exp : m_val_expressions )
 		{
-		    std::cout<<"val:"<<res<<std::endl;
 			res += exp.eval();
 		}
 		return res;
 	}
 
-	double getGrad( const Var & on_input ) const
+	double DerivOn( const Var & on_input ) const
 	{
 		double res = 0.0;
 
@@ -114,34 +113,39 @@ public:
 
 	Var operator+( const Var & other )
 	{
-	    std::cout<<"add"<<std::endl;
 		Var z;
+		
+    	auto val_func = []( const Var * x, const Var * y ) {
+				return  x && y ? x->Val() + y->Val() : 0;
+			};
+		z.addValExpression(Expression(val_func, this, &other));
 
 		for( auto &[ptr, exps] : m_grad_expressions )
 		{
-		    std::cout<<"loop self"<<std::endl;
 			z.addGradExpression( ptr, exps );
 		}
 		for( auto &[ptr, exps] : other.m_grad_expressions )
 		{
-		    std::cout<<"loop other"<<std::endl;
 			z.addGradExpression( ptr, exps );
 		}
 
-        std::cout<<"return z"<<std::endl;
-		return std::move( z );	//in case RVO is not enabled
+		return std::move( z );
 	}
 
 	Var operator*( const Var & other )
 	{
-	    std::cout<<"multi"<<std::endl;
 		Var z;
+		
+		auto val_func = []( const Var * x, const Var * y ) {
+				return  x && y ? x->Val() * y->Val() : 0;
+			};
+		z.addValExpression(Expression(val_func, this, &other));
 
 		for( auto &[ptr, exps] : m_grad_expressions )
 		{
 			for( auto & exp : exps ) {
 				auto mult_func = [exp]( const Var * x, const Var * y ) {
-					return y ? exp.eval() * y->getVal() : 0;
+					return y ? exp.eval() * y->Val() : 0;
 				};
 				z.addGradExpression( ptr, Expression(mult_func, this, &other) );
 			}
@@ -151,30 +155,35 @@ public:
 			for( auto & exp : exps )
 			{
 				auto mult_func = [exp]( const Var * x, const Var * y ) {
-					return x ? exp.eval() * x->getVal() : 0;
+					return x ? exp.eval() * x->Val() : 0;
 				};
 				z.addGradExpression( ptr, Expression( mult_func, this, &other ) );
 			}
 		}
 
-		return std::move( z );	//in case RVO is not enabled
+		return std::move( z );
 	}
 
 	static Var sin( const Var & v )
 	{
-	    std::cout<<"sin"<<std::endl;
 		Var z;
+		
+		auto val_func = []( const Var * x, const Var * y ) {
+				return  x ? std::sin(x->Val()) : 0;
+			};
+		z.addValExpression(Expression(val_func, &v, nullptr));
+		
 		for( auto &[ptr, exps] : v.m_grad_expressions )
 		{
 			for( auto & exp : exps )
 			{
 				auto mult_func = [exp]( const Var * x, const Var * y ) {
-					return x ? exp.eval() * std::cos(x->getVal()) : 0;
+					return x ? exp.eval() * std::cos(x->Val()) : 0;
 				};
 				z.addGradExpression( ptr, Expression( mult_func, &v, nullptr ) );
 			}
 		}
-		return std::move( z );	//in case RVO is not enabled
+		return std::move( z );
 	}
 
 private:
@@ -189,13 +198,13 @@ private:
 
 int main()
 {
-    std::cout<<"start"<<std::endl;
     Var x;
     Var y;
     Var z = x*y + Var::sin(x);
     x.setVal(2);
     y.setVal(4);
-    std::cout<<"z:"<<z.getVal()<<std::endl;
-
+    std::cout<<"z val:"<<z.Val()<<std::endl;
+    std::cout<<"dz/dx:"<<z.DerivOn(x)<<std::endl;
+    std::cout<<"dz/dy:"<<z.DerivOn(y)<<std::endl;
     return 0;
 }
