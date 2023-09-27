@@ -2,11 +2,29 @@
 
 ### Forward Mode (using Dual Number)
 
-TODO: add background
+Example:
+
+```
+    Dual d(0.0, 1.0);
+    Dual x(3.0);
+    Dual y = func_to_deriv(x + d);
+    std::cout<<y.deriv()<<std::endl;
+```
 
 ### Backward Mode (using expression tree and back propagation)
 
-TODO: add background
+Example:
+```
+    Var x;
+    Var y;
+    Var z = x*y + Var::sin(x);
+    
+    x.setVal(2);
+    y.setVal(4);
+    std::cout<<"z val:"<<z.val()<<std::endl;
+    std::cout<<"dz/dx:"<<z.derivOn(x)<<std::endl;
+    std::cout<<"dz/dy:"<<z.derivOn(y)<<std::endl;
+```
 
 ### References
 
