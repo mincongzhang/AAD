@@ -17,13 +17,19 @@ Example:
 ```
     Var x;
     Var y;
-    Var z = x*y + Var::sin(x);
+    
+    Var xy = x*y;
+    Var sinx = Var::sin(x);
+    
+    Var z = xy + sinx;
     
     x.setVal(2);
     y.setVal(4);
-    std::cout<<"z:"<<z.val()<<std::endl;            //z:8.9093
-    std::cout<<"dz/dx:"<<z.derivOn(x)<<std::endl;   //dz/dx:3.58385
-    std::cout<<"dz/dy:"<<z.derivOn(y)<<std::endl;   /dz/dy:2
+    
+    assert(std::abs(z.val() - 8.9093) < 0.0001);
+    assert(std::abs(z.derivOn(x) - 3.58385) < 0.001);
+    assert(std::abs(z.derivOn(y) - 2) < 0.001);
+    
 ```
 
 ### References
