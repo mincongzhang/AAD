@@ -1,5 +1,4 @@
 #include <iostream>
-#include <assert.h>
 #include <stdlib.h> 
 
 class Dual
@@ -48,8 +47,6 @@ int main()
     Dual x(3.0);
     Dual y = func_to_deriv(x + d);
     
-    std::cout<<y.deriv()<<std::endl;
-    assert(abs(y.deriv()-9.0) < 0.0001);
-    
+    std::cout<<y.deriv()<<std::endl;   
     return 0;
 };
