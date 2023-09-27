@@ -114,9 +114,10 @@ public:
     {
         Var z;
         
-        auto val_func = []( const Var * x, const Var * y ) {
-                return  x && y ? x->val() + y->val() : 0;
-            };
+        auto val_func = []( const Var * x, const Var * y )
+        {
+            return  x && y ? x->val() + y->val() : 0;
+        };
         z.addValExpression(Expression(val_func, this, &other));
 
         for( auto &[ptr, exps] : m_grad_expressions )
@@ -153,7 +154,8 @@ public:
         {
             for( auto & exp : exps )
             {
-                auto mult_func = [exp]( const Var * x, const Var * y ) {
+                auto mult_func = [exp]( const Var * x, const Var * y ) 
+                {
                     return x ? exp.eval() * x->val() : 0;
                 };
                 z.addGradExpression( ptr, Expression( mult_func, this, &other ) );
@@ -167,16 +169,18 @@ public:
     {
         Var z;
         
-        auto val_func = []( const Var * x, const Var * y ) {
-                return  x ? std::sin(x->val()) : 0;
-            };
+        auto val_func = []( const Var * x, const Var * y ) 
+        {
+            return  x ? std::sin(x->val()) : 0;
+        };
         z.addValExpression(Expression(val_func, &v, nullptr));
         
         for( auto &[ptr, exps] : v.m_grad_expressions )
         {
             for( auto & exp : exps )
             {
-                auto mult_func = [exp]( const Var * x, const Var * y ) {
+                auto mult_func = [exp]( const Var * x, const Var * y ) 
+                {
                     return x ? exp.eval() * std::cos(x->val()) : 0;
                 };
                 z.addGradExpression( ptr, Expression( mult_func, &v, nullptr ) );
