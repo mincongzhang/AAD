@@ -26,6 +26,9 @@ int main()
 
 Example:
 ```
+
+int main()
+{
     Var x;
     Var y;
     
@@ -40,7 +43,9 @@ Example:
     assert(std::abs(z.val() - 8.9093) < 0.0001);
     assert(std::abs(z.derivOn(x) - 3.58385) < 0.001);
     assert(std::abs(z.derivOn(y) - 2) < 0.001);
-    
+
+    return 0;
+}
 ```
 
 ### References
