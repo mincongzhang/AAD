@@ -29,47 +29,47 @@ public:
     Var( double val = 0.0 ) : m_val( val ), m_grad( 1.0 )
     {
 
-        auto init_val_exp = []( const Var * x, const Var * y ) {
+        auto init_eval_trace = []( const Var * x, const Var * y ) {
             return x->getVal();
         };
-        m_val_expressions.emplace_back( Expression( init_val_exp, this, nullptr ) );
+        m_eval_traces.emplace_back( Expression( init_eval_trace, this, nullptr ) );
 
-        auto init_grad_exp = []( const  Var * x, const Var * y )
+        auto init_tan_trace = []( const  Var * x, const Var * y )
         {
             return 1;
         };
-        m_grad_expressions[this] = std::vector< Expression > { Expression( init_grad_exp, this, nullptr ) };
+        m_tan_traces[this] = std::vector< Expression > { Expression( init_tan_trace, this, nullptr ) };
     }
 
-    void addValExpression( const Expression & exp )
+    void addEvalTrace( const Expression & exp )
     {
-        m_val_expressions.emplace_back( exp );
+        m_eval_traces.emplace_back( exp );
     }
 
-    void addGradExpression( const Var * ptr, const Expression & exp )
+    void addTanTrace( const Var * ptr, const Expression & exp )
     {
-        auto it = m_grad_expressions.find( ptr );
-        if( it != m_grad_expressions.end() )
+        auto it = m_tan_traces.find( ptr );
+        if( it != m_tan_traces.end() )
         {
             it->second.emplace_back( exp );
         }
         else
         {
-            m_grad_expressions[ptr] = std::vector< Expression > { exp };
+            m_tan_traces[ptr] = std::vector< Expression > { exp };
         }
     }
 
 
-    void addGradExpression( const Var * ptr, const std::vector<Expression> exps )
+    void addTanTrace( const Var * ptr, const std::vector<Expression> exps )
     {
-        auto it = m_grad_expressions.find( ptr );
-        if( it != m_grad_expressions.end() )
+        auto it = m_tan_traces.find( ptr );
+        if( it != m_tan_traces.end() )
         {
             it->second.insert( it->second.end(), exps.begin(), exps.end() );
         }
         else
         {
-            m_grad_expressions[ptr] = exps;
+            m_tan_traces[ptr] = exps;
         }
     }
 
@@ -86,7 +86,7 @@ public:
     double val() const
     {
         double res = 0.0;
-        for( const auto & exp : m_val_expressions )
+        for( const auto & exp : m_eval_traces )
         {
             res += exp.eval();
         }
@@ -97,8 +97,8 @@ public:
     {
         double res = 0.0;
 
-        auto it = m_grad_expressions.find( &on_input );
-        if( it != m_grad_expressions.end() )
+        auto it = m_tan_traces.find( &on_input );
+        if( it != m_tan_traces.end() )
         {
             auto exps = it->second;
             for( const auto & exp : exps )
@@ -118,15 +118,15 @@ public:
         {
             return  x && y ? x->val() + y->val() : 0;
         };
-        z.addValExpression(Expression(val_func, this, &other));
+        z.addEvalTrace(Expression(val_func, this, &other));
 
-        for( auto &[ptr, exps] : m_grad_expressions )
+        for( auto &[ptr, exps] : m_tan_traces )
         {
-            z.addGradExpression( ptr, exps );
+            z.addTanTrace( ptr, exps );
         }
-        for( auto &[ptr, exps] : other.m_grad_expressions )
+        for( auto &[ptr, exps] : other.m_tan_traces )
         {
-            z.addGradExpression( ptr, exps );
+            z.addTanTrace( ptr, exps );
         }
 
         return std::move( z );
@@ -139,18 +139,18 @@ public:
         auto val_func = []( const Var * x, const Var * y ) {
                 return  x && y ? x->val() * y->val() : 0;
             };
-        z.addValExpression(Expression(val_func, this, &other));
+        z.addEvalTrace(Expression(val_func, this, &other));
 
-        for( auto &[ptr, exps] : m_grad_expressions )
+        for( auto &[ptr, exps] : m_tan_traces )
         {
             for( auto & exp : exps ) {
                 auto mult_func = [exp]( const Var * x, const Var * y ) {
                     return y ? exp.eval() * y->val() : 0;
                 };
-                z.addGradExpression( ptr, Expression(mult_func, this, &other) );
+                z.addTanTrace( ptr, Expression(mult_func, this, &other) );
             }
         }
-        for( auto &[ptr, exps] : other.m_grad_expressions )
+        for( auto &[ptr, exps] : other.m_tan_traces )
         {
             for( auto & exp : exps )
             {
@@ -158,7 +158,7 @@ public:
                 {
                     return x ? exp.eval() * x->val() : 0;
                 };
-                z.addGradExpression( ptr, Expression( mult_func, this, &other ) );
+                z.addTanTrace( ptr, Expression( mult_func, this, &other ) );
             }
         }
 
@@ -173,9 +173,9 @@ public:
         {
             return  x ? std::sin(x->val()) : 0;
         };
-        z.addValExpression(Expression(val_func, &v, nullptr));
+        z.addEvalTrace(Expression(val_func, &v, nullptr));
         
-        for( auto &[ptr, exps] : v.m_grad_expressions )
+        for( auto &[ptr, exps] : v.m_tan_traces )
         {
             for( auto & exp : exps )
             {
@@ -183,7 +183,7 @@ public:
                 {
                     return x ? exp.eval() * std::cos(x->val()) : 0;
                 };
-                z.addGradExpression( ptr, Expression( mult_func, &v, nullptr ) );
+                z.addTanTrace( ptr, Expression( mult_func, &v, nullptr ) );
             }
         }
         return std::move( z );
@@ -194,8 +194,8 @@ private:
     double m_val;
     double m_grad;
 
-    std::vector< Expression > m_val_expressions;
-    std::unordered_map< const Var *, std::vector< Expression > > m_grad_expressions;
+    std::vector< Expression > m_eval_traces;
+    std::unordered_map< const Var *, std::vector< Expression > > m_tan_traces;
 
 };
 
