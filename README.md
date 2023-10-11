@@ -1,6 +1,6 @@
 # Automatic Differentiation Proof of Concept
 
-### Forward Mode: background
+### Forward Mode - Background
 
 There are a number of methods for writing software to compute derivatives of functions and their approximations: 
 
@@ -8,7 +8,13 @@ There are a number of methods for writing software to compute derivatives of fun
 2. computer algebra and finite differences
 3. automatic differentiation, which provides a way to compute multiple derivatives of highly complex functions efficiently and accurately
 
-### Forward Mode: example using Dual Number
+### Forward Mode - Theory
+
+### Forward Mode - Dual Number
+
+### Forward Mode - Dual Number Implementation
+
+### Forward Mode - Example Using Dual Number
 
 Example:
 
@@ -29,6 +35,8 @@ int main()
     return 0;
 };
 ```
+
+### Forward Mode - Partial Derivatives
 
 ### Backward Mode (using expression tree and back propagation)
 
