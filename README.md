@@ -1,6 +1,13 @@
 # Automatic Differentiation Proof of Concept
 
-### Forward Mode (using Dual Number)
+### Forward Mode: background
+
+There are a number of methods for writing software to compute derivatives of functions and their approximations: 
+
+1. deriving expressions analytically by hand that are subsequently implemented as expressions in code
+2. computer algebra and finite differences
+
+### Forward Mode: example using Dual Number
 
 Example:
 
