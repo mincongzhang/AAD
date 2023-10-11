@@ -6,6 +6,7 @@ There are a number of methods for writing software to compute derivatives of fun
 
 1. deriving expressions analytically by hand that are subsequently implemented as expressions in code
 2. computer algebra and finite differences
+3. automatic differentiation, which provides a way to compute multiple derivatives of highly complex functions efficiently and accurately
 
 ### Forward Mode: example using Dual Number
 
