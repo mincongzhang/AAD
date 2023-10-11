@@ -52,6 +52,8 @@ int main()
 
 https://web.archive.org/web/20050315101043/http://homepage.mac.com/sigfpe/paper.pdf
 
+Dan Piponi (2004) Automatic Differentiation, C++ Templates, and Photogrammetry, Journal of Graphics Tools, 9:4, 41-55, DOI: 10.1080/10867651.2004.10504901
+
 https://github.com/autodiff/autodiff
 
 https://sidsite.com/posts/autodiff/
