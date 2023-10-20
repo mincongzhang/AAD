@@ -1,4 +1,4 @@
-# Automatic Differentiation Proof of Concept
+# Automatic Differentiation
 
 ### Forward Mode - Background
 
