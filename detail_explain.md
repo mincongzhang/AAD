@@ -44,7 +44,11 @@ Cons:
 
 (2)Every modification to the function must be repeated in differential form. 
 
-e.g. if we have 1000 variables and a functions with 1000 chains then it could be almost impossible to manually get the derivitives. We could of course try to use some tool like a derivative calculator to get the derivitives automatically, but this complicates the build process and put constrains on coding styles.  
+e.g. if we have 1000 variables and a functions with 1000 chains then it could be almost impossible to manually get the derivitives. We could of course try to use some tool like a derivative calculator to get the derivitives and then code the expressions, but this complicates the build process and put constrains on coding styles.  
+
+#### 2. Finite Differences
+
+
 
 ### Automatic Differentiation Forward Mode - Dual Number
 
