@@ -32,7 +32,11 @@ z' &= \frac{\partial g\(x, y\)}{\partial x} + y' \frac{\partial g\(x, y\)}{\part
 \end{aligned}
 $$
 
-Ultimately get the differentiable expressions. 
+Ultimately we get the differentiable expressions and we can compute derivatives. 
+
+Pros:
+
+Cons:
 
 ### Automatic Differentiation Forward Mode - Dual Number
 
