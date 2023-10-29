@@ -48,6 +48,9 @@ e.g. if we have 1000 variables and a functions with 1000 chains then it could be
 
 #### 2. Finite Differences
 
+By definition, the derivative of a function $f$, written $`f'(x)`$ or $\frac{df}{dx}$ is defined by 
+
+$$f'\(x\) = \lim_{\delta \to 0} \frac{f\(x+\delta\) - f\(x\)}{\delta}$$
 
 
 ### Automatic Differentiation Forward Mode - Dual Number
