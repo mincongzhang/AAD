@@ -19,7 +19,9 @@ For example, suppose we know how to compute the derivatives of the functions $f$
 $$
 \begin{aligned}
 y &= f\(x\) \\
-z &= g\(x, y\)
+z &= g\(x, y\) \\
+
+y' = f'\(x\)
 \end{aligned}
 $$
 
