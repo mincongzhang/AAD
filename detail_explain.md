@@ -8,7 +8,7 @@ There are a number of methods for writing software to compute derivatives of fun
 2. finite differences
 3. automatic differentiation, which provides a way to compute multiple derivatives of highly complex functions efficiently and accurately
 
-### Forward Mode - Theory
+### Background - Two classic approaches to computing derivatives
 
 ### Forward Mode - Dual Number
 
