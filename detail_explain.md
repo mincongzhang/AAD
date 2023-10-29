@@ -52,7 +52,14 @@ By definition, the derivative of a function $f$, written $`f'(x)`$ or $\frac{df}
 
 $$f'\(x\) = \lim_{\delta \to 0} \frac{f\(x+\delta\) - f\(x\)}{\delta}$$
 
-In this equation we can choose $\delta$ to be a small value, rather than take the limit as it approaches zero, and compute $\frac{f\(x+\delta\) - f\(x\)}{\delta}$
+In this equation we can choose $\delta$ to be a small value, rather than take the limit as it approaches zero, and compute $\frac{f\(x+\delta\) - f\(x\)}{\delta}$. This is an approximation
+to $`f'(x)`$ known as the __forward difference__.
+
+There is some difficulty associated with choosing a suitable value for $\delta$. Too large and the approximation to the definition of the derivative is poor. Too small and we can expect the result to be dominated by rounding errors. 
+
+We can improve the accuracy using __central differences__, i.e. $\frac{f\(x+\delta\) - f\(x-\delta\)}{2\delta}$, but the errors can still be large. 
+
+Note that this also requires two seperate evaluations of $f$. If we generalise this method to compute $n$ partial derivatives of a function then we can expect to require $n+1$ separate computations of $f$.
 
 ### Automatic Differentiation Forward Mode - Dual Number
 
