@@ -52,6 +52,7 @@ By definition, the derivative of a function $f$, written $`f'(x)`$ or $\frac{df}
 
 $$f'\(x\) = \lim_{\delta \to 0} \frac{f\(x+\delta\) - f\(x\)}{\delta}$$
 
+In this equation we can choose $\delta$ to be a small value, rather than take the limit as it approaches zero, and compute $\frac{f\(x+\delta\) - f\(x\)}{\delta}$
 
 ### Automatic Differentiation Forward Mode - Dual Number
 
