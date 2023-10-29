@@ -12,7 +12,7 @@ There are a number of methods for writing software to compute derivatives of fun
 
 #### 1. Symbolic Expression
 
-Derive a symbolic expression for the derivative manually and then directly code the resulging expression might be the most popular approach to computing derivatives. 
+Derive a symbolic expression for the derivative manually and then directly code the resulting expression might be the most popular approach to computing derivatives. 
 
 For example, suppose we know how to compute the derivatives of the functions $f$ and $g$.
 
@@ -36,7 +36,15 @@ Ultimately we get the differentiable expressions and we can compute derivatives.
 
 Pros:
 
+Straightforward and intuitive.
+
 Cons:
+
+(1)If we have multiple variables and complicated function then it could be tedious and error prone. 
+
+(2)Every modification to the function must be repeated in differential form. 
+
+e.g. if we have 1000 variables and a functions with 1000 chains then it could be almost impossible to manually get the derivitives. We could of course try to use some tool like a derivative calculator to get the derivitives automatically, but this complicates the build process and put constrains on coding styles.  
 
 ### Automatic Differentiation Forward Mode - Dual Number
 
