@@ -23,7 +23,7 @@ z  &= g\(x, y\)
 \end{aligned}
 $$
 
-We can use the chain rule to get the derivative
+We can use the chain rule to get the derivatives:
 
 $$
 \begin{aligned}
