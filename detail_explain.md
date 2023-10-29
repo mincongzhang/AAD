@@ -10,11 +10,11 @@ There are a number of methods for writing software to compute derivatives of fun
 
 ### Background - Two classic approaches to computing derivatives
 
-### Forward Mode - Dual Number
+### Automatic Differentiation Forward Mode - Dual Number
 
-### Forward Mode - Dual Number Implementation
+### Automatic Differentiation Forward Mode - Dual Number Implementation
 
-### Forward Mode - Example Using Dual Number
+### Automatic Differentiation Forward Mode - Example Using Dual Number
 
 Example:
 
