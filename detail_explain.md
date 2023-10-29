@@ -18,13 +18,19 @@ For example, suppose we know how to compute the derivatives of the functions $f$
 
 $$
 \begin{aligned}
-y &= f\(x\) \\
-z &= g\(x, y\) \\
-
-y' = f'\(x\)
+y  &= f\(x\)    \\
+z  &= g\(x, y\)
 \end{aligned}
 $$
 
+We can use the chain rule to get the derivative
+
+$$
+\begin{aligned}
+y' &= f'\(x\)   \\
+z' &= \frac{\partial g\(x, y\)}{\partial x} + y' \frac{\partial g\(x, y\)}{\partial y}
+\end{aligned}
+$$
 
 ### Automatic Differentiation Forward Mode - Dual Number
 
