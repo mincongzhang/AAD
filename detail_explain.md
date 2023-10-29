@@ -1,11 +1,11 @@
 # Automatic Differentiation
 
-### Background - Differential calculus and 
+### Background - Differential calculus and derivatives computation
 
 There are a number of methods for writing software to compute derivatives of functions and their approximations: 
 
-1. deriving expressions analytically by hand that are subsequently implemented as expressions in code
-2. computer algebra and finite differences
+1. derive symbolic expressions for the derivative manually and then directly code the resulting expressions
+2. finite differences
 3. automatic differentiation, which provides a way to compute multiple derivatives of highly complex functions efficiently and accurately
 
 ### Forward Mode - Theory
