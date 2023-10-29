@@ -1,6 +1,6 @@
 # Automatic Differentiation
 
-### Background
+### Background - Differential calculus and 
 
 There are a number of methods for writing software to compute derivatives of functions and their approximations: 
 
