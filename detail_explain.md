@@ -36,7 +36,7 @@ Ultimately we get the differentiable expressions and we can compute derivatives.
 
 Pros:
 
-Straightforward and intuitive.
+(1)Straightforward and intuitive
 
 Cons:
 
