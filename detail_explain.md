@@ -32,6 +32,8 @@ z' &= \frac{\partial g\(x, y\)}{\partial x} + y' \frac{\partial g\(x, y\)}{\part
 \end{aligned}
 $$
 
+Ultimately get the differentiable expressions. 
+
 ### Automatic Differentiation Forward Mode - Dual Number
 
 ### Automatic Differentiation Forward Mode - Dual Number Implementation
