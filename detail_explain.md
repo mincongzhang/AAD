@@ -77,7 +77,7 @@ $$f'\(x\) = \lim_{\delta \to 0} \frac{f\(x+\delta\) - f\(x\)}{\delta} = \frac{4d
 
 The exact derivative is $4x$ so we have an error term $\frac{2d^2}{d}$. If $d^2$ is small compared to $d$ then the error becomes small and the approximation approaches the true value of the derivative. Ultimately, if $d^2$ were zero then we could compute the derivative as $4x$ exactly. 
 
-But unfortunately the only choice for a real number $d$ such that $d^2 = 0$ is $d=0$.
+But unfortunately the only choice for a real number $d$ such that $d^2 = 0$ is $d=0$. $d$ is the denominator so if we set $d=0$ then the whole computation is meaningless. How do we find a non-zero number $d$ such that $d^2=0$?
 
 ### Automatic Differentiation Forward Mode - Dual Number Implementation
 
