@@ -79,6 +79,8 @@ The exact derivative is $4x$ so we have an error term $\frac{2d^2}{d}$. If $d^2$
 
 But unfortunately the only choice for a real number $d$ such that $d^2 = 0$ is $d=0$. $d$ is the denominator so if we set $d=0$ then the whole computation is meaningless. How do we find a non-zero number $d$ such that $d^2=0$?
 
+It's the time we introduce the dual number. It's similar to the concept of complex numbers. 
+
 ### Automatic Differentiation Forward Mode - Dual Number Implementation
 
 ### Automatic Differentiation Forward Mode - Example Using Dual Number
