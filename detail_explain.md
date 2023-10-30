@@ -75,7 +75,9 @@ Let's set $\delta = d$, a small non-zero number, then the approximation to $`f'(
 
 $$f'\(x\) = \lim_{\delta \to 0} \frac{f\(x+\delta\) - f\(x\)}{\delta} = \frac{4dx + 2d^2}{d} = \frac{4dx}{d} + \frac{2d^2}{d} = 4x + \frac{2d^2}{d} $$
 
+The exact derivative is $4x$ so we have an error term $\frac{2d^2}{d}$. If $d^2$ is small compared to $d$ then the error becomes small and the approximation approaches the true value of the derivative. Ultimately, if $d^2$ were zero then we could compute the derivative as $4x$ exactly. 
 
+But unfortunately the only choice for a real number $d$ such that $d^2 = 0$ is $d=0$.
 
 ### Automatic Differentiation Forward Mode - Dual Number Implementation
 
