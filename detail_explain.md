@@ -63,7 +63,16 @@ Note that this also requires two seperate evaluations of $f$. If we generalise t
 
 ### Automatic Differentiation Forward Mode - Dual Number
 
-start from here
+Let's check the equation again:
+
+$$f'\(x\) = \lim_{\delta \to 0} \frac{f\(x+\delta\) - f\(x\)}{\delta}$$
+
+And look at the following example:
+
+$$f\(x\) = 2x^2 + 1$$
+
+
+TODO
 
 ### Automatic Differentiation Forward Mode - Dual Number Implementation
 
