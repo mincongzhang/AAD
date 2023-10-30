@@ -73,7 +73,7 @@ $$f\(x\) = 2x^2 + 1$$
 
 Let's set $\delta = d$, a small non-zero number, then the approximation to $`f'(x)`$ is given by:
 
-$$f'\(x\) = \lim_{\delta \to 0} \frac{f\(x+\delta\) - f\(x\)}{\delta} = \frac{4dx + 2d^2}{d} = \frac{4dx}{d} + \frac{2d^2}{d} $$
+$$f'\(x\) = \lim_{\delta \to 0} \frac{f\(x+\delta\) - f\(x\)}{\delta} = \frac{4dx + 2d^2}{d} = \frac{4dx}{d} + \frac{2d^2}{d} = 4x + \frac{2d^2}{d} $$
 
 
 
