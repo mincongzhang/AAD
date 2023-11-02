@@ -85,8 +85,9 @@ So now we can have the equation as:
 
 $$
 \begin{aligned}
-f'\(x\) &= \lim_{\delta \to 0} \frac{f\(x+\delta\) - f\(x\)}{\delta}    \\
-f'\(x\) &=  \frac{f\(x+d\) - f\(x\)}{d}
+f'\(x\)   &= \lim_{\delta \to 0} \frac{f\(x+\delta\) - f\(x\)}{\delta}    \\
+f'\(x\)   &=  \frac{f\(x+d\) - f\(x\)}{d}  \\
+f\(x+d\)  &=  f\(x\) + d f'\(x\)
 \end{aligned}
 $$
 
