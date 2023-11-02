@@ -106,6 +106,8 @@ $$
 
 So we can read off the derivative of $`f(x)`$ as the coefficient of $d$, i.e. $`f'(x) = 4x`$. And that is the same as what we can derive manually.   
 
+For another example TODO
+
 ### Automatic Differentiation Forward Mode - Dual Number Implementation
 
 ### Automatic Differentiation Forward Mode - Example Using Dual Number
