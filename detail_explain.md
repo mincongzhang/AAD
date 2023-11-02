@@ -81,6 +81,15 @@ But unfortunately the only choice for a real number $d$ such that $d^2 = 0$ is $
 
 It's the time we introduce the __dual numbers__. It's similar to the concept of complex numbers, where we have the equation $x^2 + 1 = 0$ and we define the imaginary number $i$ with the property $i^2 = -1$. We extend the real numbers by adding a new infinitesimal variable $d$, with the property that $d^2 = 0$ but $d \neq 0$.
 
+So now we can have the equation as:
+
+$$
+\begin{aligned}
+f'\(x\) &= \lim_{\delta \to 0} \frac{f\(x+\delta\) - f\(x\)}{\delta}    \\
+f'\(x\) &=  \frac{f\(x+d\) - f\(x\)}{d}
+\end{aligned}
+$$
+
 ### Automatic Differentiation Forward Mode - Dual Number Implementation
 
 ### Automatic Differentiation Forward Mode - Example Using Dual Number
