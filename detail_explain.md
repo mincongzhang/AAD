@@ -91,7 +91,7 @@ $$f'\(x\)   = \lim_{\delta \to 0} \frac{f\(x+\delta\) - f\(x\)}{\delta} =  \frac
 $$f\(x+d\)  =  f\(x\) + d f'\(x\)$$
 
 
-And for our example $f\(x\) = 2x^2 + 1$, remember with the dual number definition $d^2 = 0$ but $d \neq 0$:
+And for our example $f\(x\) = 2x^2 + 1$, remember with the dual number definition we have $d^2 = 0$ but $d \neq 0$:
 
 $$
 \begin{aligned}
