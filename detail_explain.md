@@ -85,25 +85,22 @@ It's the time we introduce the __dual numbers__. It's similar to the concept of 
 
 So now we can have the equation as:
 
-$$
-\begin{aligned}
-f'\(x\)   &= \lim_{\delta \to 0} \frac{f\(x+\delta\) - f\(x\)}{\delta}    \\
-f'\(x\)   &=  \frac{f\(x+d\) - f\(x\)}{d}  \\
-f\(x+d\)  &=  f\(x\) + d f'\(x\)
-\end{aligned}
-$$
+
+$$f'\(x\)   = \lim_{\delta \to 0} \frac{f\(x+\delta\) - f\(x\)}{\delta} =  \frac{f\(x+d\) - f\(x\)}{d}$$  
+
+$$f\(x+d\)  =  f\(x\) + d f'\(x\)$$
+
 
 And for our example $f\(x\) = 2x^2 + 1$, remember with the dual number definition $d^2 = 0$ but $d \neq 0$:
 
 $$
 \begin{aligned}
 f\(x+d\)  &=  2\(x+d\)^2 + 1 \\
-f\(x+d\)  &=  2\(x^2 + 2xd + d^2\) + 1 \\
-f\(x+d\)  &=  2x^2 + 4xd + 2d^2+ 1 \\
-f\(x+d\)  &=  2x^2 + 4xd + 2 \times 0 + 1 \\
-f\(x+d\)  &=  2x^2 + 4xd + 1 \\
-f\(x+d\)  &=  (2x^2 + 1)  + d \times 4x \\
-f\(x+d\)  &=  f\(x\) + d f'\(x\)
+          &=  2\(x^2 + 2xd + d^2\) + 1 \\
+          &=  2x^2 + 4xd + 2d^2+ 1 \\
+          &=  2x^2 + 4xd + 2 \times 0 + 1 \\
+          &=  2x^2 + 4xd + 1 \\
+          &=  (2x^2 + 1)  + d \times 4x = f\(x\) + d f'\(x\)
 \end{aligned}
 $$
 
