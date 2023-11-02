@@ -93,6 +93,18 @@ f\(x+d\)  &=  f\(x\) + d f'\(x\)
 \end{aligned}
 $$
 
+And for our example $f\(x\) = 2x^2 + 1$, remember with the dual number definition $d^2 = 0$ but $d \neq 0$:
+$$
+\begin{aligned}
+f\(x+d\)  &=  2\(x+d\)^2 + 1 \\
+f\(x+d\)  &=  2\(x^2 + 2xd + d^2+d\) + 1 \\
+f\(x+d\)  &=  2x^2 + 4xd + 2d^2+ 1 \\
+f\(x+d\)  &=  2x^2 + 4xd + 2 \times 0 + 1 \\
+f\(x+d\)  &=  2x^2 + 1  + d \times 4x \\
+f\(x+d\)  &=  f\(x\) + d f'\(x\)
+\end{aligned}
+$$
+
 ### Automatic Differentiation Forward Mode - Dual Number Implementation
 
 ### Automatic Differentiation Forward Mode - Example Using Dual Number
