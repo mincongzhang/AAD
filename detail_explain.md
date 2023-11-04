@@ -132,6 +132,25 @@ We now have a strategy for computing derivatives: perform all of our function ev
 
 ### Automatic Differentiation Forward Mode - Dual Number Implementation
 
+As with the definition of i there are some additional properties
+we require. For example commutativity so that ad = da and a + d = d + a for
+any real number a.
+
+Because
+our new class is defined algebraically (through d2 = 0) the implementation is in
+fact very similar to the implementation of complex numbers as a class.
+
+Every element of our new class can be written in the form a+bd
+for real a and b. We call a the real part and b the infinitesimal part.
+
+make the members of this class public.
+Consider the summation of two objects of type Dual.
+
+Similarly the product of two Dual objects is given
+
+Using these expressions we can implement addition and multiplication via
+operator overloading as follows
+
 ### Automatic Differentiation Forward Mode - Example Using Dual Number
 
 Example:
