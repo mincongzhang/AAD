@@ -104,9 +104,31 @@ f\(x+d\)  &=  2\(x+d\)^2 + 1 \\
 \end{aligned}
 $$
 
-So we can read off the derivative of $`f(x)`$ as the coefficient of $d$, i.e. $`f'(x) = 4x`$. And that is the same as what we can derive manually.   
+So we can read off the derivative of $`f(x)`$ as the coefficient of $d$, i.e. 
 
-For another example TODO
+$$f'(x) = 4x$$
+
+And that is the same as what we can derive manually.   
+
+Consider another example, $f\(x\) = x^n$. With Binomial theorem and $d^2 = 0$ but $d \neq 0$, we have
+
+$$
+\begin{aligned}
+f\(x+d\)  &=  \(x+d\)^n \\
+          &=  \binom{n}{0} x^{n} d^{0}  + \binom{n}{1} x^{n-1} d^{1} + \binom{n}{2} x^{n-2} d^{2} + ... + \binom{n}{n-1} x^{1} d^{n-1} + \binom{n}{n} x^{0} d^{n} \\
+          &=  \binom{n}{0} x^{n} d^{0}  + \binom{n}{1} x^{n-1} d^{1} + d^2 \left[ \binom{n}{2} x^{n-2} + ... + \binom{n}{n-1} x^{1} d^{n-1 - 2} + \binom{n}{n} x^{0} d^{n-2}  \right] \\
+          &=  \binom{n}{0} x^{n} d^{0}  + \binom{n}{1} x^{n-1} d^{1} + 0 \times \left[ \binom{n}{2} x^{n-2} + ... + \binom{n}{n-1} x^{1} d^{n-1 - 2} + \binom{n}{n} x^{0} d^{n-2}  \right] \\
+          &=  \binom{n}{0} x^{n} d^{0}  + \binom{n}{1} x^{n-1} d
+\end{aligned}
+$$
+
+So we can read off the derivative of $`f(x)`$ as the coefficient of $d$, i.e. 
+
+$$f'(x) = \binom{n}{1} x^{n-1} = \frac{n!}{1!\(n-1\)!} x^{n-1} = n x^{n-1}$$
+
+That is also the same as what we can derive manually.   
+
+We now have a strategy for computing derivatives: perform all of our function evaluations over the real numbers extended by infinitesimal $d$ and read off the derivateive from the final coefficient of $d$. These extended numbers are called __dual numbers__.
 
 ### Automatic Differentiation Forward Mode - Dual Number Implementation
 
