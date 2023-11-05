@@ -132,9 +132,13 @@ We now have a strategy for computing derivatives: perform all of our function ev
 
 ### Automatic Differentiation Forward Mode - Dual Number Implementation
 
-As with the definition of i there are some additional properties
-we require. For example commutativity so that ad = da and a + d = d + a for
-any real number a.
+#### Commutative property
+for any real number a:
+$$ad = da$$
+
+$$a + d = d + a$$
+
+
 
 Because
 our new class is defined algebraically (through d2 = 0) the implementation is in
