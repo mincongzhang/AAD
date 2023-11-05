@@ -81,7 +81,7 @@ But unfortunately the only choice for a real number $d$ such that $d^2 = 0$ is $
 
 #### Introduce Dual Numbers
 
-It's the time we introduce the __dual numbers__. It's similar to the concept of complex numbers, where we have the equation $x^2 + 1 = 0$ and we define the imaginary number $i$ with the property $i^2 = -1$. We extend the real numbers by adding a new infinitesimal variable $d$, with the property that $d^2 = 0$ but $d \neq 0$.
+It's the time we introduce the __dual numbers__. It's similar to the concept of complex numbers, where we have the equation $x^2 + 1 = 0$ and we define the imaginary number $i$ with the property $i^2 = -1$. We extend the real numbers by adding a new infinitesimal variable $d$, with the property that $d^2 = 0$ but $d \neq 0$. And some additional properties like commutativity so that $a \times d = d \times a$, and $a+d = d+a$ for any real number $a$. 
 
 So now we can have the equation as:
 
@@ -91,7 +91,7 @@ $$f'\(x\)   = \lim_{\delta \to 0} \frac{f\(x+\delta\) - f\(x\)}{\delta} =  \frac
 $$f\(x+d\)  =  f\(x\) + d f'\(x\)$$
 
 
-And for our example $f\(x\) = 2x^2 + 1$, remember with the dual number definition we have $d^2 = 0$ but $d \neq 0$:
+And for our example $f\(x\) = 2x^2 + 1$, remember with the dual number definition we have $d^2 = 0$ but $d \neq 0$, and commutativity $a \times d = d \times a$, $a+d = d+a$:
 
 $$
 \begin{aligned}
