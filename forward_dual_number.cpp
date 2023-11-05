@@ -6,10 +6,10 @@ class Dual
 {
     private:
     double m_real; //Real part
-    double m_inf_simal; //Infinitesimal part
+    double m_infsimal; //Infinitesimal part
     
     public:
-    Dual (double r, double i = 0.0): m_real(r), m_inf_simal(i) {}
+    Dual (double r, double i = 0.0): m_real(r), m_infsimal(i) {}
 
     double real() const
     {
@@ -18,12 +18,12 @@ class Dual
     
     double infsimal() const
     {
-        return m_inf_simal;
+        return m_infsimal;
     }
     
     double deriv() const
     {
-        return m_inf_simal;
+        return m_infsimal;
     }
 };
 
