@@ -158,6 +158,9 @@ Now we need to consider some dual number calculation rules.
 
 #### Addition And Subtraction
 
+$$\(real_0 + infsimal_0 \times d \) + \(real_1 + infsimal_1 \times d \) = \( real_0 + real_1 \) + \( infsimal_0 + infsimal_1 \) \times d$$
+
+
 #### Multiplication
 
 #### Example Using Addition And Multiplication
