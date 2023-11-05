@@ -134,9 +134,35 @@ We now have a strategy for computing derivatives: perform all of our function ev
 
 Let's think about how do we implement dual numbers. The implementation is in fact very similiar to the implementation of complex numbers as a class. We can write a dual number in the following form for real numbers $a$ and $b$:
 
-$$a + b d$$
+$$a + b \times d$$
 
-We call $a$ the real part and $b$ the infinitesimal part. 
+We call $a$ the real part and $b$ the infinitesimal part. Or we can make the variable more readable following the programming's best practices:
+
+$$real + infsimal \times d$$
+
+We can now define the class by
+
+```
+class Dual
+{
+    private:
+    double m_real; //Real part
+    double m_infsimal; //Infinitesimal part
+    
+    public:
+    Dual (double r, double i = 0.0): m_real(r), m_infsimal(i) {}
+};
+```
+
+Now we need to consider some dual number calculation rules.
+
+#### Addition And Subtraction
+
+#### Multiplication
+
+#### Example Using Addition And Multiplication
+
+#### Division
 
 
 Because
