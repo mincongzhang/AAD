@@ -132,12 +132,11 @@ We now have a strategy for computing derivatives: perform all of our function ev
 
 ### Automatic Differentiation Forward Mode - Dual Number Implementation
 
-#### Commutative property
-for any real number a:
-$$ad = da$$
+Let's think about how do we implement dual numbers. The implementation is in fact very similiar to the implementation of complex numbers as a class. We can write a dual number in the following form for real numbers $a$ and $b$:
 
-$$a + d = d + a$$
+$$a + b d$$
 
+We call $a$ the real part and $b$ the infinitesimal part. 
 
 
 Because
