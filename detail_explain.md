@@ -132,13 +132,11 @@ We now have a strategy for computing derivatives: perform all of our function ev
 
 ### Automatic Differentiation Forward Mode - Dual Number Implementation
 
-Let's think about how do we implement dual numbers. The implementation is in fact very similiar to the implementation of complex numbers as a class. We can write a dual number in the following form for real numbers $a$ and $b$:
+Let's think about how do we implement dual numbers. The implementation is in fact very similiar to the implementation of complex numbers as a class. We can write a dual number in the following form for real numbers $r$ and $i$:
 
-$$a + b \times d$$
+$$r + i d$$
 
-We call $a$ the real part and $b$ the infinitesimal part. Or we can make the variable more readable following the programming's best practices:
-
-$$real + infsimal \times d$$
+We call $r$ the real part and $i$ the infinitesimal part.
 
 We can now define the class by
 
@@ -158,10 +156,19 @@ Now we need to consider some dual number calculation rules.
 
 #### Addition And Subtraction
 
-$$\(real_0 + infsimal_0 \times d \) + \(real_1 + infsimal_1 \times d \) = \( real_0 + real_1 \) + \( infsimal_0 + infsimal_1 \) \times d$$
+Two dual numbers addition and subtraction:
+
+$$\(r_0 + i_0  d \) + \(r_1 + i_1 d \) = \( r_0 + r_1 \) + \( i_0 + i_1 \) d$$
+
+$$\(r_0 + i_0  d \) - \(r_1 + i_1  d \) = \( r_0 - r_1 \) + \( i_0 - i_1 \) d$$
 
 
 #### Multiplication
+
+Two dual numbers multiplication:
+
+$$\(r_0 + i_0  d \) \(r_1 + i_1  d \) = r_0  r_1 + \( r_0 i_1 + r_1 i_0 \) d$$
+
 
 #### Example Using Addition And Multiplication
 
