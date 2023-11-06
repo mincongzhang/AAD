@@ -34,7 +34,7 @@ $$
 
 Ultimately we get the differentiable expressions and we can compute derivatives. 
 
-Pros:
+Pros: 
 
 (1)Straightforward and intuitive
 
