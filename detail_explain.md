@@ -163,12 +163,26 @@ $$\(r_0 + i_0  d \) + \(r_1 + i_1 d \) = \( r_0 + r_1 \) + \( i_0 + i_1 \) d$$
 $$\(r_0 + i_0  d \) - \(r_1 + i_1  d \) = \( r_0 - r_1 \) + \( i_0 - i_1 \) d$$
 
 
+```
+Dual operator+(const Dual &x, const Dual &y)
+{
+    return Dual(x.real() + y.real(), x.infsimal() + y.infsimal());
+}
+```
+
 #### Multiplication
 
 Two dual numbers multiplication:
 
 $$\(r_0 + i_0  d \) \(r_1 + i_1  d \) = r_0  r_1 + \( r_0 i_1 + r_1 i_0 \) d$$
 
+
+```
+Dual operator*(const Dual &x, const Dual &y)
+{
+    return Dual(x.real() * y.real(), x.real() * y.infsimal() + x.infsimal() * y.real());
+}
+```
 
 #### Example Using Addition And Multiplication
 
