@@ -201,7 +201,7 @@ And with our implementation, we have:
 
 $$f(x+d) = f(x) + df'(x)$$
 
-so we can define $x$, $d$ and $f(x)$:
+so we can define $x$, $d$ and $f(x)$ as follow. We can then see the full implementation and the result is also 9:
 
 ```
 Dual d(0.0, 1.0);
@@ -214,8 +214,6 @@ Dual func_to_deriv(Dual x)
     return (x + Dual(2.0, 0.0)) * (x + Dual(1.0, 0.0));
 }
 ```
-
-Full implementation and we can see the output is also 9:
 
 ```
 #include <iostream>
