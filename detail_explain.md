@@ -18,8 +18,8 @@ For example, suppose we know how to compute the derivatives of the functions $f$
 
 $$
 \begin{aligned}
-y  &= f\(x\)    \\
-z  &= g\(x, y\)
+y  &= f(x)    \\
+z  &= g(x, y)
 \end{aligned}
 $$
 
@@ -27,8 +27,8 @@ We can use the chain rule to get the derivatives:
 
 $$
 \begin{aligned}
-y' &= f'\(x\)   \\
-z' &= \frac{\partial g\(x, y\)}{\partial x} + y' \frac{\partial g\(x, y\)}{\partial y}
+y' &= f'(x)   \\
+z' &= \frac{\partial g(x, y)}{\partial x} + y' \frac{\partial g(x, y)}{\partial y}
 \end{aligned}
 $$
 
@@ -50,14 +50,14 @@ e.g. if we have 1000 variables and a functions with 1000 chains then it could be
 
 By definition, the derivative of a function $f$, written $`f'(x)`$ or $\frac{df}{dx}$ is defined by 
 
-$$f'\(x\) = \lim_{\delta \to 0} \frac{f\(x+\delta\) - f\(x\)}{\delta}$$
+$$f'(x) = \lim_{\delta \to 0} \frac{f(x+\delta) - f(x)}{\delta}$$
 
-In this equation we can choose $\delta$ to be a small value, rather than take the limit as it approaches zero, and compute $\frac{f\(x+\delta\) - f\(x\)}{\delta}$. This is an approximation
+In this equation we can choose $\delta$ to be a small value, rather than take the limit as it approaches zero, and compute $\frac{f(x+\delta) - f(x)}{\delta}$. This is an approximation
 to $`f'(x)`$ known as the __forward difference__.
 
 There is some difficulty associated with choosing a suitable value for $\delta$. Too large and the approximation to the definition of the derivative is poor. Too small and we can expect the result to be dominated by rounding errors. 
 
-We can improve the accuracy using __central differences__, i.e. $\frac{f\(x+\delta\) - f\(x-\delta\)}{2\delta}$, but the errors can still be large. 
+We can improve the accuracy using __central differences__, i.e. $\frac{f(x+\delta) - f(x-\delta)}{2\delta}$, but the errors can still be large. 
 
 Note that this also requires two seperate evaluations of $f$. If we generalise this method to compute $n$ partial derivatives of a function then we can expect to require $n+1$ separate computations of $f$.
 
@@ -65,15 +65,15 @@ Note that this also requires two seperate evaluations of $f$. If we generalise t
 
 Let's check the equation again:
 
-$$f'\(x\) = \lim_{\delta \to 0} \frac{f\(x+\delta\) - f\(x\)}{\delta}$$
+$$f'(x) = \lim_{\delta \to 0} \frac{f(x+\delta) - f(x)}{\delta}$$
 
 And look at the following example:
 
-$$f\(x\) = 2x^2 + 1$$
+$$f(x) = 2x^2 + 1$$
 
 Let's set $\delta = d$, a small non-zero number, then the approximation to $`f'(x)`$ is given by:
 
-$$f'\(x\) = \lim_{\delta \to 0} \frac{f\(x+\delta\) - f\(x\)}{\delta} = \frac{4dx + 2d^2}{d} = \frac{4dx}{d} + \frac{2d^2}{d} = 4x + \frac{2d^2}{d} $$
+$$f'(x) = \lim_{\delta \to 0} \frac{f(x+\delta) - f(x)}{\delta} = \frac{4dx + 2d^2}{d} = \frac{4dx}{d} + \frac{2d^2}{d} = 4x + \frac{2d^2}{d} $$
 
 The exact derivative is $4x$ so we have an error term $\frac{2d^2}{d}$. If $d^2$ is small compared to $d$ then the error becomes small and the approximation approaches the true value of the derivative. Ultimately, if $d^2$ were zero then we could compute the derivative as $4x$ exactly. 
 
@@ -86,21 +86,21 @@ It's the time we introduce the __dual numbers__. It's similar to the concept of 
 So now we can have the equation as:
 
 
-$$f'\(x\)   = \lim_{\delta \to 0} \frac{f\(x+\delta\) - f\(x\)}{\delta} =  \frac{f\(x+d\) - f\(x\)}{d}$$  
+$$f'(x)   = \lim_{\delta \to 0} \frac{f(x+\delta) - f(x)}{\delta} =  \frac{f(x+d) - f(x)}{d}$$  
 
-$$f\(x+d\)  =  f\(x\) + d f'\(x\)$$
+$$f(x+d)  =  f(x) + d f'(x)$$
 
 
-And for our example $f\(x\) = 2x^2 + 1$, remember with the dual number definition we have $d^2 = 0$ but $d \neq 0$, and commutativity $a \times d = d \times a$, $a+d = d+a$:
+And for our example $f(x) = 2x^2 + 1$, remember with the dual number definition we have $d^2 = 0$ but $d \neq 0$, and commutativity $a \times d = d \times a$, $a+d = d+a$:
 
 $$
 \begin{aligned}
-f\(x+d\)  &=  2\(x+d\)^2 + 1 \\
-          &=  2\(x^2 + 2xd + d^2\) + 1 \\
+f(x+d)  &=  2(x+d)^2 + 1 \\
+          &=  2(x^2 + 2xd + d^2) + 1 \\
           &=  2x^2 + 4xd + 2d^2+ 1 \\
           &=  2x^2 + 4xd + 2 \times 0 + 1 \\
           &=  2x^2 + 4xd + 1 \\
-          &=  (2x^2 + 1)  + d \times 4x = f\(x\) + d f'\(x\)
+          &=  (2x^2 + 1)  + d \times 4x = f(x) + d f'(x)
 \end{aligned}
 $$
 
@@ -110,11 +110,11 @@ $$f'(x) = 4x$$
 
 And that is the same as what we can derive manually.   
 
-Consider another example, $f\(x\) = x^n$. With Binomial theorem and $d^2 = 0$ but $d \neq 0$, we have
+Consider another example, $f(x) = x^n$. With Binomial theorem and $d^2 = 0$ but $d \neq 0$, we have
 
 $$
 \begin{aligned}
-f\(x+d\)  &=  \(x+d\)^n \\
+f(x+d)  &=  (x+d)^n \\
           &=  \binom{n}{0} x^{n} d^{0}  + \binom{n}{1} x^{n-1} d^{1} + \binom{n}{2} x^{n-2} d^{2} + ... + \binom{n}{n-1} x^{1} d^{n-1} + \binom{n}{n} x^{0} d^{n} \\
           &=  \binom{n}{0} x^{n} d^{0}  + \binom{n}{1} x^{n-1} d^{1} + d^2 \left[ \binom{n}{2} x^{n-2} + ... + \binom{n}{n-1} x^{1} d^{n-1 - 2} + \binom{n}{n} x^{0} d^{n-2}  \right] \\
           &=  \binom{n}{0} x^{n} d^{0}  + \binom{n}{1} x^{n-1} d^{1} + 0 \times \left[ \binom{n}{2} x^{n-2} + ... + \binom{n}{n-1} x^{1} d^{n-1 - 2} + \binom{n}{n} x^{0} d^{n-2}  \right] \\
@@ -124,7 +124,7 @@ $$
 
 So we can read off the derivative of $`f(x)`$ as the coefficient of $d$, i.e. 
 
-$$f'(x) = \binom{n}{1} x^{n-1} = \frac{n!}{1!\(n-1\)!} x^{n-1} = n x^{n-1}$$
+$$f'(x) = \binom{n}{1} x^{n-1} = \frac{n!}{1!(n-1)!} x^{n-1} = n x^{n-1}$$
 
 That is also the same as what we can derive manually.   
 
@@ -152,15 +152,15 @@ class Dual
 };
 ```
 
-Now we need to consider some dual number calculation rules.
+Now we just need to consider some dual number calculation rules.
 
 #### Addition And Subtraction
 
 Two dual numbers addition and subtraction:
 
-$$\(r_0 + i_0  d \) + \(r_1 + i_1 d \) = \( r_0 + r_1 \) + \( i_0 + i_1 \) d$$
+$$(r_0 + i_0  d ) + (r_1 + i_1 d ) = ( r_0 + r_1 ) + ( i_0 + i_1 ) d$$
 
-$$\(r_0 + i_0  d \) - \(r_1 + i_1  d \) = \( r_0 - r_1 \) + \( i_0 - i_1 \) d$$
+$$(r_0 + i_0  d ) - (r_1 + i_1  d ) = ( r_0 - r_1 ) + ( i_0 - i_1 ) d$$
 
 
 ```
@@ -168,13 +168,18 @@ Dual operator+(const Dual &x, const Dual &y)
 {
     return Dual(x.real() + y.real(), x.infsimal() + y.infsimal());
 }
+
+Dual operator-(const Dual &x, const Dual &y)
+{
+    return Dual(x.real() - y.real(), x.infsimal() - y.infsimal());
+}
 ```
 
 #### Multiplication
 
-Two dual numbers multiplication:
+Similarly two dual numbers multiplication can be:
 
-$$\(r_0 + i_0  d \) \(r_1 + i_1  d \) = r_0  r_1 + \( r_0 i_1 + r_1 i_0 \) d$$
+$$(r_0 + i_0  d ) (r_1 + i_1  d ) = r_0  r_1 + ( r_0 i_1 + r_1 i_0 ) d$$
 
 
 ```
@@ -185,6 +190,97 @@ Dual operator*(const Dual &x, const Dual &y)
 ```
 
 #### Example Using Addition And Multiplication
+
+With what we have implemented we can write a very simple equation and compute the derivative:
+
+$$f(x) = (x+2)(x+1) = x^2 + 3x + 2$$
+
+We manually get the derivative:
+
+$$f'(x) = 2x + 3$$
+
+When $x=3$:
+
+$$f'(3) = 2 \times 3 + 3 = 9$$
+
+And with our implementation, we have:
+
+$$f(x+d) = f(x) + df'(x)$$
+
+so we can define $x$, $d$ and $f(x)$:
+
+```
+Dual d(0.0, 1.0);
+Dual x(3.0);
+```
+
+```
+Dual func_to_deriv(Dual x)
+{
+    return (x + Dual(2.0, 0.0)) * (x + Dual(1.0, 0.0));
+}
+```
+
+Full implementation and we can see the output is also 9:
+
+```
+#include <iostream>
+#include <stdlib.h> 
+#include <assert.h> 
+
+class Dual
+{
+    private:
+    double m_real; //Real part
+    double m_infsimal; //Infinitesimal part
+    
+    public:
+    Dual (double r, double i = 0.0): m_real(r), m_infsimal(i) {}
+
+    double real() const
+    {
+        return m_real;
+    }
+    
+    double infsimal() const
+    {
+        return m_infsimal;
+    }
+    
+    double deriv() const
+    {
+        return m_infsimal;
+    }
+};
+
+Dual operator+(const Dual &x, const Dual &y)
+{
+    return Dual(x.real() + y.real(), x.infsimal() + y.infsimal());
+}
+
+Dual operator*(const Dual &x, const Dual &y)
+{
+    return Dual(x.real() * y.real(), x.real() * y.infsimal() + x.infsimal() * y.real());
+}
+
+Dual func_to_deriv(Dual x)
+{
+    return (x + Dual(2.0, 0.0)) * (x + Dual(1.0, 0.0));
+}
+
+int main()
+{
+    Dual d(0.0, 1.0);
+    Dual x(3.0);
+    Dual y = func_to_deriv(x + d);
+    
+    assert(std::abs(y.deriv() - 9.0) < 0.0001);
+    
+    std::cout<<y.deriv()<<std::endl;   
+    return 0;
+};
+```
+
 
 #### Division
 
