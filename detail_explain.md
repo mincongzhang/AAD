@@ -32,17 +32,11 @@ z' &= \frac{\partial g(x, y)}{\partial x} + y' \frac{\partial g(x, y)}{\partial 
 \end{aligned}
 $$
 
-Ultimately we get the differentiable expressions and we can compute derivatives. 
+Ultimately we get the differentiable expressions and we can compute derivatives. This is straightforward and intuitive. But the cons would be:
 
-Pros: 
+(1)It could be tedious and error prone if we have multiple variables and complicated function
 
-(1)Straightforward and intuitive
-
-Cons:
-
-(1)If we have multiple variables and complicated function then it could be tedious and error prone. 
-
-(2)Every modification to the function must be repeated in differential form. 
+(2)Every modification to the function must be repeated in differential form
 
 e.g. if we have 1000 variables and a functions with 1000 chains then it could be almost impossible to manually get the derivitives. We could of course try to use some tool like a derivative calculator to get the derivitives and then code the expressions, but this complicates the build process and put constrains on coding styles.  
 
