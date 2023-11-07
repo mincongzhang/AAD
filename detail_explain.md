@@ -32,7 +32,7 @@ z' &= \frac{\partial g(x, y)}{\partial x} + y' \frac{\partial g(x, y)}{\partial 
 \end{aligned}
 $$
 
-Ultimately we get the differentiable expressions and we can compute derivatives. This is straightforward and intuitive. But the cons would be:
+Ultimately we get the differentiable expressions and we can compute derivatives. This is straightforward and intuitive. But the disadvantages would be:
 
 (1)It could be tedious and error prone if we have multiple variables and complicated function
 
