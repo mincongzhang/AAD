@@ -201,7 +201,7 @@ And with our implementation, we have:
 
 $$f(x+d) = f(x) + df'(x)$$
 
-so we can define $x$, $d$ and $f(x)$ as follow. We can then see the full implementation and the result is also 9:
+We can define $d$, $x$ and $f(x)$ as follow. We can then see the full implementation and the result is also 9:
 
 ```
 Dual d(0.0, 1.0);
