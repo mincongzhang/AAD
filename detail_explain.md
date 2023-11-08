@@ -276,21 +276,29 @@ int main()
 
 #### Division
 
+Division is a bit complicated. First we write down the division of two dual numbers:
 
-Because
-our new class is defined algebraically (through d2 = 0) the implementation is in
-fact very similar to the implementation of complex numbers as a class.
+$$\frac{r_0 + i_0  d }{r_1 + i_1  d } = \frac{r_0 + i_0 d}{r_1} \frac{1}{1+\frac{i_1}{r_1} d}$$
 
-Every element of our new class can be written in the form a+bd
-for real a and b. We call a the real part and b the infinitesimal part.
+Then we need to look at the Generalized Binomial Theorem and binomial expansion of negative power:
 
-make the members of this class public.
-Consider the summation of two objects of type Dual.
+$$(1+bx)^n = 1 + n(bx) + \frac{n(n-1)}{2} (bx)^2 + \frac{n(n-1)(n-2)}{3} (bx)^3 + ... + \frac{n(n-1)...(n-r)}{r}(bx)^r + ...$$
 
-Similarly the product of two Dual objects is given
+It's an infinite series when $n$ is not a positive integer. It's valid when $|bx| < 1$ or $|x| < \frac{1}{|b|}$. 
 
-Using these expressions we can implement addition and multiplication via
-operator overloading as follows
+Back to our case, we have $n=-1$, $b = (i_1/r_1)$ and $x=d$. Aparently $|bx| = (i_1/r_1)d < 1$ because we define $d$ as an infinitesimal number. So we have:
+
+$$ $$
+
+$$
+\begin{aligned}
+\frac{r_0 + i_0  d }{r_1 + i_1  d } &= \frac{r_0 + i_0 d}{r_1} \frac{1}{1+\frac{i_1}{r_1} d} \\
+                                    &=  \frac{r_0 + i_0 d}{r_1} \left[1 - (\frac{i_1}{r_1}d) + \frac{-1(-1-1)}{2} (\frac{i_1}{r_1}d)^2 + \frac{-1(-1-1)(-1-2)}{3} (\frac{i_1}{r_1}d)^3 + ... + \frac{-1(-1-1)...(-1-r)}{r}(\frac{i_1}{r_1}d)^r + ...\right] \\
+                                    &= \frac{r_0 + i_0 d}{r_1} \left[1 - (\frac{i_1}{r_1}d) + d^2(...) \right] \\
+                                    &= \frac{r_0 + i_0 d}{r_1} \left[1 - (\frac{i_1}{r_1}d)  \right] \\
+                                    &= \frac{r_0}{r_1} + \frac{r_1 i_0 - r_0 i_1}{r_1 ^ {2}}d
+\end{aligned}
+$$
 
 ### Automatic Differentiation Forward Mode - Example Using Dual Number
 
