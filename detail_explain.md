@@ -286,7 +286,7 @@ $$(1+bx)^n = 1 + n(bx) + \frac{n(n-1)}{2} (bx)^2 + \frac{n(n-1)(n-2)}{3} (bx)^3 
 
 It's an infinite series when $n$ is not a positive integer. It's valid when $|bx| < 1$ or $|x| < \frac{1}{|b|}$. 
 
-Back to our case, we have $n=-1$, $b = (i_1/r_1)$ and $x=d$. Aparently $|bx| = (i_1/r_1)d < 1$ because we define $d$ as an infinitesimal number. So we have:
+Back to our case, we have $n=-1$, $b = (i_1/r_1)$ and $x=d$. Aparently $|bx| = (i_1/r_1)d < 1$ because we define $d$ as an infinitesimal number. So we have the following because we defined $d^2=0$:
 
 $$ $$
 
