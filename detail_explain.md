@@ -288,8 +288,6 @@ It's an infinite series when $n$ is not a positive integer. It's valid when $|bx
 
 Back to our case, we have $n=-1$, $b = (i_1/r_1)$ and $x=d$. Aparently $|bx| = (i_1/r_1)d < 1$ because we define $d$ as an infinitesimal number. So we have the following because we defined $d^2=0$:
 
-$$ $$
-
 $$
 \begin{aligned}
 \frac{r_0 + i_0  d }{r_1 + i_1  d } &= \frac{r_0 + i_0 d}{r_1} \frac{1}{1+\frac{i_1}{r_1} d} \\
@@ -299,6 +297,8 @@ $$
                                     &= \frac{r_0}{r_1} + \frac{r_1 i_0 - r_0 i_1}{r_1 ^ {2}}d
 \end{aligned}
 $$
+
+### Partial Derivatives
 
 ### Automatic Differentiation Forward Mode - Example Using Dual Number
 
