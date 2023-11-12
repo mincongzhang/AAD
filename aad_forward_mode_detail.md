@@ -1,4 +1,4 @@
-# Automatic Differentiation
+# Automatic Differentiation - Forward Mode
 
 ### Background - Differential calculus and derivatives
 
