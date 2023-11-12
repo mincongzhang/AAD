@@ -67,7 +67,7 @@ https://www.cs.toronto.edu/~rgrosse/courses/csc321_2018/slides/lec10.pdf
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 
-# Automatic Differentiation - Detail Explain
+# Automatic Differentiation - Detail
 
 ## Background - Differential calculus and derivatives
 
@@ -123,6 +123,8 @@ There is some difficulty associated with choosing a suitable value for $\delta$.
 We can improve the accuracy using __central differences__, i.e. $\frac{f(x+\delta) - f(x-\delta)}{2\delta}$, but the errors can still be large. 
 
 Note that this also requires two seperate evaluations of $f$. If we generalise this method to compute $n$ partial derivatives of a function then we can expect to require $n+1$ separate computations of $f$.
+
+-----------------------------------------------------------
 
 ## Automatic Differentiation Forward Mode - Dual Number
 
