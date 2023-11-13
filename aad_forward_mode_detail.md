@@ -304,6 +304,8 @@ We have demonstrated how to differentiate with one single variable, and we can g
 
 Instead of introducing a single variable $d$ such that $d^2=0$, we introduce a set of variables $d_i$ with $i \in I$, where $I$ is an index set. 
 
+We also need to introduce that the $d_i$ commute with all real numbers (e.g. $ad_i = d_ia$)
+
 TODO
 
 ### Second Derivatives and Higher
