@@ -299,3 +299,13 @@ $$
 $$
 
 ### Partial Derivatives
+
+We have demonstrated how to differentiate with one single variable, and we can generelise the same method to partial derivatives. 
+
+Instead of introducing a single variable $d$ such that $d^2=0$, we introduce a set of variables $d_i$ with $i \in I$, where $I$ is an index set. 
+
+TODO
+
+### Second Derivatives and Higher
+
+TODO
