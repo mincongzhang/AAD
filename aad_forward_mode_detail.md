@@ -302,13 +302,16 @@ $$
 
 We have demonstrated how to differentiate with one single variable, and we can generelise the same method to partial derivatives. Instead of introducing a single variable $d$ such that $d^2=0$, we introduce a set of variables $d_i$ with $i \in I$, where $I$ is an index set. 
 
+<!--
 We also need to introduce that the $d_i$ commute with all real numbers (e.g. $ad_i = d_ia$, and $a+d_i = d_i + a$, for all real $a$), and that $d_i d_j = 0$ for all $i,j \in I$.
-
 A general dual number of this type may now be written as
-
 $$x = a + \sum_{i \in I}^{} b_i d_i $$
+-->
 
-TODO
+Suppose we have a function $f(x,y)$, then we compute $f(x+d_0, y+d_1)$. The required partial derivatives appear as the coefficients of $d_0$ and $d_1$.
+
+$$f(x+d_0, y+d_1) = f(x,y) + \frac{\partial f}{\partial x} (x,y) d_0 + \frac{\partial f}{\partial y} (x,y) d_1$$
+
 
 ### Second Derivatives and Higher
 
