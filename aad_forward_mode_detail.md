@@ -304,7 +304,9 @@ We have demonstrated how to differentiate with one single variable, and we can g
 
 We also need to introduce that the $d_i$ commute with all real numbers (e.g. $ad_i = d_ia$, and $a+d_i = d_i + a$, for all real $a$), and that $d_i d_j = 0$ for all $i,j \in I$.
 
-A general dual number of this type may now be written as $x = a + \sum_{i \in I}^{} b_i d_i $
+A general dual number of this type may now be written as
+
+$$x = a + \sum_{i \in I}^{} b_i d_i $$
 
 TODO
 
