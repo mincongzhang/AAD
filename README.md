@@ -2,7 +2,7 @@
 
 ## Forward Mode - Using Dual Number
 
-First order example:
+First order example for $f(x)=(x+2)(x+1)$:
 
 ```
 Dual func_to_deriv(Dual x)
@@ -22,7 +22,7 @@ int main()
 };
 ```
 
-First and second order example:
+First and second order example for $f(x)=x^2 + 2x$::
 
 ```
 template <typename T>
