@@ -2,7 +2,7 @@
 
 ## Forward Mode - Using Dual Number
 
-Example:
+First order example:
 
 ```
 Dual func_to_deriv(Dual x)
@@ -17,6 +17,29 @@ int main()
     Dual y = func_to_deriv(x + d);
     
     assert(std::abs(y.deriv() - 9.0) < 0.0001);
+    
+    return 0;
+};
+```
+
+First and second order example:
+
+```
+int main()
+{
+    Dual<float> d(0.0, 1.0);
+    Dual<float> x(3.0);
+    Dual<float> y = func_to_deriv<float>(x + d);
+    std::cout<<"f(x)=x^2 + 2x, f'(x)=2x+2, f'(3)="<<y.deriv()<<std::endl;   
+    assert(std::abs(y.deriv() - 8.0) < 0.0001);
+    
+    float first_order_d = first_order_deriv<float>(3.0);
+    std::cout<<"f(x)=x^2 + 2x, f'(x)=2x+2, f'(3)="<<first_order_d<<std::endl;   
+    assert(std::abs(first_order_d - 8.0) < 0.0001);
+    
+    float second_order_d = second_order_deriv(3.0);
+    std::cout<<"f(x)=x^2 + 2x, f'(x)=2, f'(3)="<<second_order_d<<std::endl;   
+    assert(std::abs(second_order_d - 2.0) < 0.0001);
     
     return 0;
 };
