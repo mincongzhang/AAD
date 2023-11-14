@@ -66,7 +66,7 @@ int main()
 
 ## Backward Mode - Using Expression Tree and Back Propagation
 
-Example:
+Example for $z = xy + sinx$:
 ```
 
 int main()
