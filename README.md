@@ -31,7 +31,6 @@ Dual<T> func_to_deriv(Dual<T> x)
     return x*x + Dual<T>(2.0, 0.0) * x ;
 }
 
-
 template <typename T>
 T first_order_deriv(Dual<T> x)
 {
