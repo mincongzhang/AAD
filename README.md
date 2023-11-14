@@ -25,6 +25,26 @@ int main()
 First and second order example:
 
 ```
+template <typename T>
+Dual<T> func_to_deriv(Dual<T> x)
+{
+    return x*x + Dual<T>(2.0, 0.0) * x ;
+}
+
+
+template <typename T>
+T first_order_deriv(Dual<T> x)
+{
+    Dual<T> res = func_to_deriv(Dual<T>(x) + Dual<T>::get_infsimal_dual());
+    return res.deriv();
+}
+
+float second_order_deriv(float x)
+{
+    Dual<float> res = first_order_deriv<Dual<float>>(Dual<float>(x) + Dual<float>::get_infsimal_dual());
+    return res.deriv();
+}
+
 int main()
 {
     Dual<float> d(0.0, 1.0);
