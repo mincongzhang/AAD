@@ -59,25 +59,25 @@ T first_order_deriv(Dual<T> x)
     return res.deriv();
 }
 
-float second_order_deriv(float x)
+double second_order_deriv(double x)
 {
-    Dual<float> res = first_order_deriv<Dual<float>>(Dual<float>(x) + Dual<float>::get_infsimal_dual());
+    Dual<double> res = first_order_deriv<Dual<double>>(Dual<double>(x) + Dual<double>::get_infsimal_dual());
     return res.deriv();
 }
 
 int main()
 {
-    Dual<float> d(0.0, 1.0);
-    Dual<float> x(3.0);
-    Dual<float> y = func_to_deriv<float>(x + d);
+    Dual<double> d(0.0, 1.0);
+    Dual<double> x(3.0);
+    Dual<double> y = func_to_deriv<double>(x + d);
     std::cout<<"f(x)=x^2 + 2x, f'(x)=2x+2, f'(3)="<<y.deriv()<<std::endl;   
     assert(std::abs(y.deriv() - 8.0) < 0.0001);
     
-    float first_order_d = first_order_deriv<float>(3.0);
+    double first_order_d = first_order_deriv<double>(3.0);
     std::cout<<"f(x)=x^2 + 2x, f'(x)=2x+2, f'(3)="<<first_order_d<<std::endl;   
     assert(std::abs(first_order_d - 8.0) < 0.0001);
     
-    float second_order_d = second_order_deriv(3.0);
+    double second_order_d = second_order_deriv(3.0);
     std::cout<<"f(x)=x^2 + 2x, f'(x)=2, f'(3)="<<second_order_d<<std::endl;   
     assert(std::abs(second_order_d - 2.0) < 0.0001);
     
