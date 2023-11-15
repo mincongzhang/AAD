@@ -315,7 +315,9 @@ $$f(x+d_0, y+d_1) = f(x,y) + \frac{\partial f}{\partial x} (x,y) d_0 + \frac{\pa
 
 ### Second Derivatives and Higher
 
-Now let's see how do we compuate second derivatives. We just need to set the real and infinitesimal parts as dual numbers, and read the second derivatives 
+Now let's see how do we compuate second derivatives. We just need to use template type for the real and infinitesimal parts. If we want to get the first order derivatives, we can set the real and infinitesimal parts as double. And if we want to get the second order derivatives, we can set the real and infinitesimal parts as dual numbers, read the real part of the infinitesimal coefficients (which are dual numbers) as the first order derivatives, and read the infinitesimal part of the infinitesimal coefficients (which are dual numbers) as the second order derivatives. 
+
+Let's check the example below:
 
 ```
 #include <iostream>
