@@ -315,6 +315,8 @@ $$f(x+d_0, y+d_1) = f(x,y) + \frac{\partial f}{\partial x} (x,y) d_0 + \frac{\pa
 
 ### Second Derivatives and Higher
 
+Now let's see how do we compuate second derivatives. We just need to set the real and infinitesimal parts as dual numbers, and read the second derivatives 
+
 ```
 #include <iostream>
 #include <stdlib.h> 
@@ -345,7 +347,7 @@ class Dual
         return m_infsimal;
     }
     
-    static Dual<T> get_infsimal_dual()
+    static Dual<T> create_infsimal_dual()
     {
         return Dual<T>(T(0.0), T(1.0));
     }
@@ -373,13 +375,13 @@ Dual<T> func_to_deriv(Dual<T> x)
 template <typename T>
 T first_order_deriv(Dual<T> x)
 {
-    Dual<T> res = func_to_deriv(Dual<T>(x) + Dual<T>::get_infsimal_dual());
+    Dual<T> res = func_to_deriv(Dual<T>(x) + Dual<T>::create_infsimal_dual());
     return res.deriv();
 }
 
 double second_order_deriv(double x)
 {
-    Dual<double> res = first_order_deriv<Dual<double>>(Dual<double>(x) + Dual<double>::get_infsimal_dual());
+    Dual<double> res = first_order_deriv<Dual<double>>(Dual<double>(x) + Dual<double>::create_infsimal_dual());
     return res.deriv();
 }
 
