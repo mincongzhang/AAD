@@ -1,3 +1,7 @@
+forward mode problem:
+complexity
+
+so we need backward mode
 
 Evaluation Trace: 原公式计算流程
 
