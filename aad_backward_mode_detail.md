@@ -9,3 +9,9 @@ Tangent Trace: chain rules, depends on the derivatives and values of the earlier
 
 
 In terms of complexity:
+
+forward mode
+
+-----------
+
+In general, if the dimension of the outputs is significantly smaller than that of inputs, reverse mode is a better choice.
