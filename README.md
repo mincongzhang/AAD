@@ -22,7 +22,7 @@ int main()
 };
 ```
 
-First and second order example for $f(x)=x^2 + 2x$::
+First and second order example for $f(x)=x^2 + 2x$:
 
 ```
 template <typename T>
