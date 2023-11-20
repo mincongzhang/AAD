@@ -55,7 +55,7 @@ We can improve the accuracy using __central differences__, i.e. $\frac{f(x+\delt
 
 Note that this also requires two seperate evaluations of $f$. If we generalise this method to compute $n$ partial derivatives of a function then we can expect to require $n+1$ separate computations of $f$.
 
-### Automatic Differentiation Forward Mode - Dual Number
+### Automatic Differentiation Forward Mode - Dual Numbers
 
 Let's check the equation again:
 
