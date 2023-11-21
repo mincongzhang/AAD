@@ -1,3 +1,6 @@
+# TODO: add taylor series explain
+
+
 # Automatic Differentiation - Forward Mode
 
 ### Background - Differential calculus and derivatives
@@ -121,6 +124,9 @@ So we can read off the derivative of $`f(x)`$ as the coefficient of $d$, i.e.
 $$f'(x) = \binom{n}{1} x^{n-1} = \frac{n!}{1!(n-1)!} x^{n-1} = n x^{n-1}$$
 
 That is also the same as what we can derive manually.   
+
+![image](https://github.com/mincongzhang/AAD/assets/5571030/f69ce967-fd5a-476e-aa69-5f8d55c68af7)
+
 
 We now have a strategy for computing derivatives: perform all of our function evaluations over the real numbers extended by infinitesimal $d$ and read off the derivateive from the final coefficient of $d$. These extended numbers are called __dual numbers__.
 
