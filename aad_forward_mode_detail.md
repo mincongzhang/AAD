@@ -125,6 +125,10 @@ $$f'(x) = \binom{n}{1} x^{n-1} = \frac{n!}{1!(n-1)!} x^{n-1} = n x^{n-1}$$
 
 That is also the same as what we can derive manually.   
 
+TODO:
+
+More formally 
+
 ![image](https://github.com/mincongzhang/AAD/assets/5571030/f69ce967-fd5a-476e-aa69-5f8d55c68af7)
 
 
