@@ -87,8 +87,29 @@ $$f'(x)   = \lim_{\delta \to 0} \frac{f(x+\delta) - f(x)}{\delta} =  \frac{f(x+d
 
 $$f(x+d)  =  f(x) + d f'(x)$$
 
+```
+Another explanation using Taylor series expansion
+```
+Given an arbitrary real function $f: \mathbb{R} \rightarrow \mathbb{R}$, we can express its Taylor series expansion at $x_0$ as:
 
-And for our example $f(x) = 2x^2 + 1$, remember with the dual number definition we have $d^2 = 0$ but $d \neq 0$, and commutativity $a \times d = d \times a$, $a+d = d+a$:
+$$f(x) = f(x_0) + f'(x_0)(x-x_0) + ... + \frac{f^{(n)}(x_0)}{n!} (x-x_0)^n + \mathcal{O} \left( (x-x_0)^{n+1} \right)$$
+
+as long as the function is $n+1$ times differentiable and has bounded $n+1$ derivative. Now we extend them to using dual numbers as inputs, it follows that
+
+$$f(x_0 + d) = f(x_0) + f'(x_0)(x_0 + d -x_0) + f''(x_0)(x_0 + d -x_0)^2 + ... + \frac{f^{(n)}(x_0)}{n!} (x_0 + d-x_0)^n + \mathcal{O} \left( (x_0 + d-x_0)^{n+1} \right)  $$
+
+$$
+\begin{aligned}
+f(x_0 + d) &= f(x_0) + f'(x_0)(x_0 + d -x_0) + f''(x_0)(x_0 + d -x_0)^2 + ... + \frac{f^{(n)}(x_0)}{n!} (x_0 + d-x_0)^n + \mathcal{O} \left( (x_0 + d-x_0)^{n+1} \right)  \\
+           &= f(x_0) + f'(x_0)(d) + f''(x_0)(d)^2 + ... + \frac{f^{(n)}(x_0)}{n!} d^n + \mathcal{O} \left( d^{n+1} \right) 
+\end{aligned}
+$$
+
+```
+Another explanation using Taylor series expansion ends here
+```
+
+We can apply the dual number to our previous example $f(x) = 2x^2 + 1$. Remember with the dual number definition we have $d^2 = 0$ but $d \neq 0$, and commutativity $a \times d = d \times a$, $a+d = d+a$:
 
 $$
 \begin{aligned}
@@ -132,7 +153,7 @@ More formally
 ![image](https://github.com/mincongzhang/AAD/assets/5571030/f69ce967-fd5a-476e-aa69-5f8d55c68af7)
 
 
-We now have a strategy for computing derivatives: perform all of our function evaluations over the real numbers extended by infinitesimal $d$ and read off the derivateive from the final coefficient of $d$. These extended numbers are called __dual numbers__.
+We now have a strategy for computing derivatives: Using dual numbers, we perform all of our function evaluations over the real numbers extended by infinitesimal $d$ and we can read off the derivative from the final coefficient of $d$. 
 
 ### Automatic Differentiation Forward Mode - Dual Number Implementation
 
