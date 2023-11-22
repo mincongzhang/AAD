@@ -101,7 +101,9 @@ f(x_0 + d) &= f(x_0) + f'(x_0)(x_0 + d -x_0) + f''(x_0)(x_0 + d -x_0)^2 + ... + 
 \end{aligned}
 $$
 
+And we can still get to this equation:
 
+$$f(x+d)  =  f(x) + d f'(x)$$
 
 ```
 Another explanation using Taylor series expansion ends here
