@@ -4,8 +4,8 @@
 
 There are a number of methods for writing software to compute derivatives of functions and their approximations: 
 
-1. derive symbolic expressions for the derivative manually and then directly code the resulting expressions
-2. finite differences
+1. derive symbolic expressions for the derivative manually and then directly code the resulting expressions, i.e. $f(x)=x^2$, $f'(x) = 2x$
+2. finite differences, i.e. $f'(x) = \lim_{\delta \to 0} \frac{f(x+\delta) - f(x)}{\delta}$
 3. automatic differentiation, which provides a way to compute multiple derivatives of highly complex functions efficiently and accurately
 
 ### Background - Two classic approaches to computing derivatives
