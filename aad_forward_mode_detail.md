@@ -94,16 +94,17 @@ Given an arbitrary real function $f: \mathbb{R} \rightarrow \mathbb{R}$, we can 
 
 $$f(x) = f(x_0) + f'(x_0)(x-x_0) + ... + \frac{f^{(n)}(x_0)}{n!} (x-x_0)^n + \mathcal{O} \left( (x-x_0)^{n+1} \right)$$
 
-as long as the function is $n+1$ times differentiable and has bounded $n+1$ derivative. Now we extend them to using dual numbers as inputs, it follows that
-
-$$f(x_0 + d) = f(x_0) + f'(x_0)(x_0 + d -x_0) + f''(x_0)(x_0 + d -x_0)^2 + ... + \frac{f^{(n)}(x_0)}{n!} (x_0 + d-x_0)^n + \mathcal{O} \left( (x_0 + d-x_0)^{n+1} \right)  $$
+as long as the function is $n+1$ times differentiable and has bounded $n+1$ derivative. Now we extend them to using dual numbers as inputs, with $d^2 = 0$, it follows that
 
 $$
 \begin{aligned}
 f(x_0 + d) &= f(x_0) + f'(x_0)(x_0 + d -x_0) + f''(x_0)(x_0 + d -x_0)^2 + ... + \frac{f^{(n)}(x_0)}{n!} (x_0 + d-x_0)^n + \mathcal{O} \left( (x_0 + d-x_0)^{n+1} \right)  \\
-           &= f(x_0) + f'(x_0)(d) + f''(x_0)(d)^2 + ... + \frac{f^{(n)}(x_0)}{n!} d^n + \mathcal{O} \left( d^{n+1} \right) 
+           &= f(x_0) + f'(x_0)d + f''(x_0)d^2 + ... + \frac{f^{(n)}(x_0)}{n!} d^n + \mathcal{O} \left( d^{n+1} \right) \\
+           &= f(x_0) + f'(x_0)d 
 \end{aligned}
 $$
+
+
 
 ```
 Another explanation using Taylor series expansion ends here
