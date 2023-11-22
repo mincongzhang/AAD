@@ -1,6 +1,3 @@
-# TODO: add taylor series explain
-
-
 # Automatic Differentiation - Forward Mode
 
 ### Background - Differential calculus and derivatives
