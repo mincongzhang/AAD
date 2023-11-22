@@ -146,13 +146,6 @@ $$f'(x) = \binom{n}{1} x^{n-1} = \frac{n!}{1!(n-1)!} x^{n-1} = n x^{n-1}$$
 
 That is also the same as what we can derive manually.   
 
-TODO:
-
-More formally 
-
-![image](https://github.com/mincongzhang/AAD/assets/5571030/f69ce967-fd5a-476e-aa69-5f8d55c68af7)
-
-
 We now have a strategy for computing derivatives: Using dual numbers, we perform all of our function evaluations over the real numbers extended by infinitesimal $d$ and we can read off the derivative from the final coefficient of $d$. 
 
 ### Automatic Differentiation Forward Mode - Dual Number Implementation
