@@ -1,3 +1,9 @@
+## Forward mode revisit
+
+$$y = h ( g ( f(x) ) )$$
+
+$$\frac{\partial y}{\partial x} =\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x}$$
+
 ## Forward mode vs backward mode
 
 how is it forward and how is it backward?
