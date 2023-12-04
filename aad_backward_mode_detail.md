@@ -10,7 +10,7 @@ $$\frac{\partial y}{\partial x} =\frac{\partial h}{\partial g} \frac{\partial g}
 
 With our dual number solution, we are decomposing calculations into elementary steps and getting the derivative of each step. So the first derivative we get is $\frac{\partial f}{\partial x}$, then $\frac{\partial g}{\partial f}$ and eventually $\frac{\partial h}{\partial g}$.
 
-One more concrete example, let's have a function:
+One more concrete example, let's have a function and its derivative:
 
 $$y = sin[(2x)^2]$$
 
