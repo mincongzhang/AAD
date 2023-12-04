@@ -6,11 +6,11 @@ $$y = h ( g ( f(x) ) )$$
 
 $$\frac{\partial y}{\partial x} =\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x}$$
 
-We have noticed that in forward mode we are decomposing calculations into elementary steps and getting the derivative of each step from the left to the right side of the chain rules:
+We have noticed that in forward mode we are decomposing calculations into elementary steps and getting the derivative of each step from the left to the right side following the chain rule:
 
 $$\frac{\partial y}{\partial x} = \overleftarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x}} $$
 
-In forward mode we are doing $\frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$ again and again. So we can try go backward on the chain rules:
+In forward mode we are doing $\frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$ again and again. So we can try go backward on the chain:
 
 $$\frac{\partial y}{\partial x} = \overrightarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x}} $$
 
