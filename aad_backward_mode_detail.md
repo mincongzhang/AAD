@@ -26,7 +26,7 @@ $$\frac{\partial y}{\partial x} = \overleftarrow{\frac{\partial h}{\partial g} \
 
 We know that we are going to talk about backward mode, and there must be some disadvantages of forward mode.
 
-Since everyone is familiar with the fancy machine learning, let's take it as an example. In machine learning there won't be only one "x" parameter, there could be hundreds or thousands of paramaters. And if we are using forward mode to get the partial derivatives of all the parameters, we are going to do:
+Since everyone is familiar with the fancy machine learning, let's take it as an example. In machine learning there won't be only one $x$ input parameter, there could be hundreds or thousands of input paramaters. And if we are using forward mode to get the partial derivatives of all the parameters, we are going to do:
 
 $$
 \begin{aligned}
@@ -37,7 +37,10 @@ $$
 \end{aligned}
 $$
 
-Have you noticed
+Have you noticed that we have $O(n)$ complexity on forward mode? This is the inefficient part of forward mode when inputs are more than outputs. 
+
+Also have you noticed that we are doing $\frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$ again and again?
+
 
 https://jingnanshi.com/blog/autodiff.html
 
