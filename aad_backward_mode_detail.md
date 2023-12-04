@@ -24,9 +24,6 @@ $$\frac{\partial y}{\partial x} = \overleftarrow{\frac{\partial h}{\partial g} \
 
 ## Forward mode vs backward mode
 
-how is it forward and how is it backward?
-
-
 
 forward mode problem:
 complexity
