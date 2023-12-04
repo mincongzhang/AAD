@@ -39,6 +39,22 @@ $$
 
 Have you noticed that we have $O(n)$ complexity on forward mode? This is the inefficience of forward mode when inputs are more than outputs, i.e. $f: \mathbb{R}^n \rightarrow \mathbb{R}^m$, where $n>m$. 
 
+But actually in other area if we have outputs more than inputs, like we have:
+
+$$
+\begin{aligned}
+\frac{\partial y_1}{\partial x} &= \overleftarrow{\frac{\partial h_1}{\partial g_1} \frac{\partial g_1}{\partial f_1} \frac{\partial f_1}{\partial x}}    \\
+\frac{\partial y_2}{\partial x} &= \overleftarrow{\frac{\partial h_2}{\partial g_2} \frac{\partial g_2}{\partial f_2} \frac{\partial f_2}{\partial x}}    \\
+... \ &= \ ...   \\
+\frac{\partial y_n}{\partial x} &= \overleftarrow{\frac{\partial h_n}{\partial g_n} \frac{\partial g_n}{\partial f_n} \frac{\partial f_n}{\partial x}}    \\
+\end{aligned}
+$$
+
+In this situation actually forward mode is a good choice!
+
+
+### Backward mode intro
+
 Also have you noticed that we are doing $\frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$ again and again? What if we go backward of the derivative like:
 
 $$\frac{\partial y}{\partial x} = \overrightarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x}} $$
