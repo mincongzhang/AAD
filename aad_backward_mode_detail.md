@@ -1,6 +1,4 @@
-## Forward mode revisit
-
-Let's revisit our forward mode using dual numbers. We know that we can do calculations on infinitesimal parts using operator overloading and read the derivative from the coefficient of the infinitesimal part of the final result. 
+## Backward Mode Intro
 
 Consider a general function like below:
 
@@ -8,69 +6,15 @@ $$y = h ( g ( f(x) ) )$$
 
 $$\frac{\partial y}{\partial x} =\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x}$$
 
-With our dual number solution, we are decomposing calculations into elementary steps and getting the derivative of each step. So the first derivative we get is $\frac{\partial f}{\partial x}$, then $\frac{\partial g}{\partial f}$ and eventually $\frac{\partial h}{\partial g}$.
-
-One more concrete example, let's have a function and its derivative:
-
-$$y = sin[(2x)^2]$$
-
-$$\frac{\partial y}{\partial x} =\frac{\partial sin[(2x)^2]}{\partial (2x)^2} \frac{\partial (2x)^2}{\partial 2x} \frac{\partial 2x}{\partial x}$$
-
-Following the order of operations and operator overloading, we know that we are firstly calculating $2x$ and getting the coefficient of its infinitesimal part, which is the derivative, i.e. $\frac{\partial 2x}{\partial x}$. Then we get $\frac{\partial (2x)^2}{\partial 2x}$ and eventually $\frac{\partial sin[(2x)^2]}{\partial (2x)^2}$.
-
-So now we know that the "forward mode" means calculating the derivitive from the right to the left through the chain rules:
+We have noticed that in forward mode we are decomposing calculations into elementary steps and getting the derivative of each step from the left to the right side of the chain rules:
 
 $$\frac{\partial y}{\partial x} = \overleftarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x}} $$
 
-##  Forward Mode: pros and cons
-
-We know that we are going to talk about backward mode, and there must be some disadvantages of forward mode.
-
-Since everyone is familiar with the fancy machine learning, let's take it as an example. In machine learning there won't be only one $x$ input parameter, there could be hundreds or thousands of input paramaters. And if we are using forward mode to get the partial derivatives of all the parameters, we might have:
-
-$$
-\begin{aligned}
-\frac{\partial y}{\partial x_1} &= \overleftarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x_1}}    \\
-\frac{\partial y}{\partial x_2} &= \overleftarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x_2}}    \\
-... \ &= \ ...   \\
-\frac{\partial y}{\partial x_n} &= \overleftarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x_n}}    \\
-\end{aligned}
-$$
-
-Have you noticed that we have $O(n)$ complexity on forward mode? This is the inefficience of forward mode when inputs are more than outputs, i.e. $f: \mathbb{R}^n \rightarrow \mathbb{R}^m$, where $n \gt m$. 
-
-But actually in other situations if we have outputs more than inputs, like we have:
-
-$$
-\begin{aligned}
-\frac{\partial y_1}{\partial x} &= \overleftarrow{\frac{\partial h_1}{\partial g_1} \frac{\partial g_1}{\partial f_1} \frac{\partial f_1}{\partial x}}    \\
-\frac{\partial y_2}{\partial x} &= \overleftarrow{\frac{\partial h_2}{\partial g_2} \frac{\partial g_2}{\partial f_2} \frac{\partial f_2}{\partial x}}    \\
-... \ &= \ ...   \\
-\frac{\partial y_n}{\partial x} &= \overleftarrow{\frac{\partial h_n}{\partial g_n} \frac{\partial g_n}{\partial f_n} \frac{\partial f_n}{\partial x}}    \\
-\end{aligned}
-$$
-
-Actually forward mode is a good choice when inputs are less than outputs, i.e. $f: \mathbb{R}^n \rightarrow \mathbb{R}^m$, where $n \lt m$. 
-
-
-### Backward mode intro
-
-Also have you noticed that we are doing $\frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$ again and again? What if we go backward of the derivative like:
+In forward mode we are doing $\frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$ again and again. So we can try go backward on the chain rules:
 
 $$\frac{\partial y}{\partial x} = \overrightarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x}} $$
 
-So we can only calculate $\frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$ once and apply it to the rest of the calculations? Yes we can. That's how our backward mode comes up. 
-
-Let's say $H = \frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$, then we can have:
-
-$$
-\begin{aligned}
-\frac{\partial y}{\partial x_1} &= H (\frac{\partial f}{\partial x_1})    \\
-\frac{\partial y}{\partial x_2} &= H (\frac{\partial f}{\partial x_2})    \\
-... \ &= \ ...   \\
-\frac{\partial y}{\partial x_n} &= H (\frac{\partial f}{\partial x_n})    \\
-\end{aligned}
-$$
+So we can only calculate $\frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$ once and apply it to the rest of the calculations. This is the idea of backward mode. 
 
 ## Backward mode
 
