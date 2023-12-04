@@ -27,8 +27,10 @@ $$
 \end{aligned}
 $$
 
-
 ## Backward mode
+
+First, we need to do a forward pass, where we obtain the primal trace (Table 2). We then propagate the partials backward to obtain the desired derivatives (following the chain rule).
+
 
 https://jingnanshi.com/blog/autodiff.html
 
