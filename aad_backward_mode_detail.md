@@ -1,4 +1,4 @@
-## Backward Mode Intro
+## Backward Mode Introduction
 
 Consider a general function like below:
 
