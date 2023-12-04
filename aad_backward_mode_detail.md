@@ -20,10 +20,10 @@ Let's denote $H = \frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$, 
 
 $$
 \begin{aligned}
-\frac{\partial y}{\partial x_1} &= H (\frac{\partial f}{\partial x_1})    \\
-\frac{\partial y}{\partial x_2} &= H (\frac{\partial f}{\partial x_2})    \\
+\frac{\partial y}{\partial x_1} &= H \left( \frac{\partial f}{\partial x_1}\right)    \\
+\frac{\partial y}{\partial x_2} &= H \left( \frac{\partial f}{\partial x_2}\right)     \\
 ... \ &= \ ...   \\
-\frac{\partial y}{\partial x_n} &= H (\frac{\partial f}{\partial x_n})    \\
+\frac{\partial y}{\partial x_n} &= H \left( \frac{\partial f}{\partial x_n}\right)     \\
 \end{aligned}
 $$
 
