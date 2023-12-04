@@ -45,6 +45,17 @@ $$\frac{\partial y}{\partial x} = \overrightarrow{\frac{\partial h}{\partial g} 
 
 So we can only calculate $\frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$ once and apply it to the rest of the calculations? Yes we can. That's how our backward mode comes up. 
 
+Let's say $H = \frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$, then we can have:
+
+$$
+\begin{aligned}
+\frac{\partial y}{\partial x_1} &= H (\frac{\partial f}{\partial x_1})    \\
+\frac{\partial y}{\partial x_2} &= H (\frac{\partial f}{\partial x_2})    \\
+... \ &= \ ...   \\
+\frac{\partial y}{\partial x_n} &= H (\frac{\partial f}{\partial x_n})    \\
+\end{aligned}
+$$
+
 ## Backward mode
 
 https://jingnanshi.com/blog/autodiff.html
