@@ -1,6 +1,6 @@
 # Automatic Differentiation - Forward Mode
 
-### Background - Differential calculus and derivatives
+## Background - Differential calculus and derivatives
 
 There are a number of methods for writing software to compute derivatives of functions and their approximations: 
 
@@ -8,9 +8,9 @@ There are a number of methods for writing software to compute derivatives of fun
 2. finite differences, i.e. $f'(x) = \lim_{\delta \to 0} \frac{f(x+\delta) - f(x)}{\delta}$
 3. automatic differentiation, which provides a way to compute multiple derivatives of highly complex functions efficiently and accurately
 
-### Background - Two classic approaches to computing derivatives
+## Background - Two classic approaches to computing derivatives
 
-#### 1. Symbolic Expression
+### 1. Symbolic Expression
 
 Derive a symbolic expression for the derivative manually and then directly code the resulting expression might be the most popular approach to computing derivatives. 
 
@@ -40,7 +40,7 @@ Ultimately we get the differentiable expressions and we can compute derivatives.
 
 e.g. if we have 1000 variables and a functions with 1000 chains then it could be almost impossible to manually get the derivitives. We could of course try to use some tool like a derivative calculator to get the derivitives and then code the expressions, but this complicates the build process and put constrains on coding styles.  
 
-#### 2. Finite Differences
+### 2. Finite Differences
 
 By definition, the derivative of a function $f$, written $`f'(x)`$ or $\frac{df}{dx}$ is defined by 
 
@@ -55,7 +55,7 @@ We can improve the accuracy using __central differences__, i.e. $\frac{f(x+\delt
 
 Note that this also requires two seperate evaluations of $f$. If we generalise this method to compute $n$ partial derivatives of a function then we can expect to require $n+1$ separate computations of $f$.
 
-### Automatic Differentiation Forward Mode - Dual Numbers
+## Forward Mode - Dual Numbers
 
 Let's check the equation again:
 
@@ -73,7 +73,7 @@ The exact derivative is $4x$ so we have an error term $\frac{2d^2}{d}$. If $d^2$
 
 But unfortunately the only choice for a real number $d$ such that $d^2 = 0$ is $d=0$. $d$ is the denominator so if we set $d=0$ then the whole computation is meaningless. How do we find a non-zero number $d$ such that $d^2=0$?
 
-#### Introduce Dual Numbers
+### Introduce Dual Numbers
 
 It's the time we introduce the __dual numbers__. It's similar to the concept of complex numbers, where we have the equation $x^2 + 1 = 0$ and we define the imaginary number $i$ with the property $i^2 = -1$. We extend the real numbers by adding a new infinitesimal variable $d$, with the property that $d^2 = 0$ but $d \neq 0$. And some additional properties like commutativity so that $a \times d = d \times a$, and $a+d = d+a$ for any real number $a$. 
 
@@ -148,7 +148,7 @@ That is also the same as what we can derive manually.
 
 We now have a strategy for computing derivatives: Using dual numbers, we perform all of our function evaluations over the real numbers extended by infinitesimal $d$ and we can read off the derivative from the final coefficient of $d$. 
 
-### Automatic Differentiation Forward Mode - Dual Number Implementation
+## Forward Mode - Dual Number Implementation
 
 Let's think about how do we implement dual numbers. The implementation is in fact very similiar to the implementation of complex numbers as a class. We can write a dual number in the following form for real numbers $r$ and $i$:
 
@@ -172,7 +172,7 @@ class Dual
 
 Now we just need to consider some dual number calculation rules.
 
-#### Addition And Subtraction
+### Addition And Subtraction
 
 Two dual numbers addition and subtraction:
 
@@ -193,7 +193,7 @@ Dual operator-(const Dual &x, const Dual &y)
 }
 ```
 
-#### Multiplication
+### Multiplication
 
 Similarly two dual numbers multiplication can be:
 
@@ -207,7 +207,7 @@ Dual operator*(const Dual &x, const Dual &y)
 }
 ```
 
-#### Example Using Addition And Multiplication
+### Example Using Addition And Multiplication
 
 With what we have implemented we can write a very simple equation and compute the derivative:
 
@@ -298,7 +298,7 @@ int main()
 ```
 
 
-#### Division
+### Division
 
 Division is a bit complicated. First we write down the division of two dual numbers:
 
@@ -322,7 +322,7 @@ $$
 \end{aligned}
 $$
 
-### Partial Derivatives
+## Partial Derivatives
 
 We have demonstrated how to differentiate with one single variable, and we can generelise the same method to partial derivatives. Instead of introducing a single variable $d$ such that $d^2=0$, we introduce a set of variables $d_i$ with $i \in I$, where $I$ is an index set. 
 
@@ -337,7 +337,7 @@ Suppose we have a function $f(x,y)$, then we compute $f(x+d_0, y+d_1)$. The requ
 $$f(x+d_0, y+d_1) = f(x,y) + \frac{\partial f}{\partial x} (x,y) d_0 + \frac{\partial f}{\partial y} (x,y) d_1$$
 
 
-### Second Derivatives and Higher
+## Second Derivatives and Higher
 
 Now let's see how do we compuate second derivatives. We just need to use template type for the real and infinitesimal parts. 
 
@@ -434,3 +434,78 @@ int main()
     return 0;
 };
 ```
+
+## Forward Mode Summary
+
+Let's do a summary on our forward mode using dual numbers. We know that we can do calculations on infinitesimal parts using operator overloading and read the derivative from the coefficient of the infinitesimal part of the final result. 
+
+Consider a general function like below:
+
+$$y = h ( g ( f(x) ) )$$
+
+$$\frac{\partial y}{\partial x} =\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x}$$
+
+With our dual number solution, we are decomposing calculations into elementary steps and getting the derivative of each step. So the first derivative we get is $\frac{\partial f}{\partial x}$, then $\frac{\partial g}{\partial f}$ and eventually $\frac{\partial h}{\partial g}$.
+
+One more concrete example, let's have a function and its derivative:
+
+$$y = sin[(2x)^2]$$
+
+$$\frac{\partial y}{\partial x} =\frac{\partial sin[(2x)^2]}{\partial (2x)^2} \frac{\partial (2x)^2}{\partial 2x} \frac{\partial 2x}{\partial x}$$
+
+Following the order of operations and operator overloading, we know that we are firstly calculating $2x$ and getting the coefficient of its infinitesimal part, which is the derivative, i.e. $\frac{\partial 2x}{\partial x}$. Then we get $\frac{\partial (2x)^2}{\partial 2x}$ and eventually $\frac{\partial sin[(2x)^2]}{\partial (2x)^2}$.
+
+So now we know that the "forward mode" means calculating the derivitive from the right to the left through the chain rules:
+
+$$\frac{\partial y}{\partial x} = \overleftarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x}} $$
+
+##  Forward Mode: Pros and Cons
+
+We know that we are going to talk about backward mode later, and there must be some disadvantages of forward mode.
+
+Since everyone is familiar with the fancy machine learning, let's take it as an example. In machine learning there won't be only one $x$ input parameter, there could be hundreds or thousands of input paramaters. And if we are using forward mode to get the partial derivatives of all the parameters, we might have:
+
+$$
+\begin{aligned}
+\frac{\partial y}{\partial x_1} &= \overleftarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x_1}}    \\
+\frac{\partial y}{\partial x_2} &= \overleftarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x_2}}    \\
+... \ &= \ ...   \\
+\frac{\partial y}{\partial x_n} &= \overleftarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x_n}}    \\
+\end{aligned}
+$$
+
+Have you noticed that we have $O(n)$ complexity on forward mode? This is the inefficience of forward mode when inputs are more than outputs, i.e. $f: \mathbb{R}^n \rightarrow \mathbb{R}^m$, where $n \gt m$. 
+
+But actually in other situations if we have outputs more than inputs, like we have:
+
+$$
+\begin{aligned}
+\frac{\partial y_1}{\partial x} &= \overleftarrow{\frac{\partial h_1}{\partial g_1} \frac{\partial g_1}{\partial f_1} \frac{\partial f_1}{\partial x}}    \\
+\frac{\partial y_2}{\partial x} &= \overleftarrow{\frac{\partial h_2}{\partial g_2} \frac{\partial g_2}{\partial f_2} \frac{\partial f_2}{\partial x}}    \\
+... \ &= \ ...   \\
+\frac{\partial y_n}{\partial x} &= \overleftarrow{\frac{\partial h_n}{\partial g_n} \frac{\partial g_n}{\partial f_n} \frac{\partial f_n}{\partial x}}    \\
+\end{aligned}
+$$
+
+Actually forward mode is a good choice when inputs are less than outputs, i.e. $f: \mathbb{R}^n \rightarrow \mathbb{R}^m$, where $n \lt m$. 
+
+### Forward to Backward
+
+Have you noticed that we are doing $\frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$ again and again? What if we go backward of the derivative like:
+
+$$\frac{\partial y}{\partial x} = \overrightarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x}} $$
+
+So we can only calculate $\frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$ once and apply it to the rest of the calculations? Yes we can. That's how our backward mode comes up. 
+
+Let's say $H = \frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$, then we can have:
+
+$$
+\begin{aligned}
+\frac{\partial y}{\partial x_1} &= H (\frac{\partial f}{\partial x_1})    \\
+\frac{\partial y}{\partial x_2} &= H (\frac{\partial f}{\partial x_2})    \\
+... \ &= \ ...   \\
+\frac{\partial y}{\partial x_n} &= H (\frac{\partial f}{\partial x_n})    \\
+\end{aligned}
+$$
+
+Let's look into backward mode later.
