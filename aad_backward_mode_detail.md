@@ -20,7 +20,7 @@ Following the order of operations and operator overloading, we know that we are 
 
 So now we know that the "forward mode" means calculating the derivitive from the right to the left through the chain rules:
 
-$$\frac{\partial y}{\partial x} = \overleftarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x}}$$
+$$\frac{\partial y}{\partial x} = \overleftarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x}} $$
 
 ## Forward mode vs backward mode
 
