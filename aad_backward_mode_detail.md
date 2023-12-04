@@ -26,7 +26,7 @@ $$\frac{\partial y}{\partial x} = \overleftarrow{\frac{\partial h}{\partial g} \
 
 We know that we are going to talk about backward mode, and there must be some disadvantages of forward mode.
 
-Usually there won't be only one "x" parameter, there could be hundreds in machine learning. 
+Since everyone is familiar with the fancy machine learning, let's take it as an example. In machine learning there won't be only one "x" parameter, there could be hundreds or thousands of paramaters. 
 
 https://jingnanshi.com/blog/autodiff.html
 
