@@ -16,7 +16,11 @@ $$y = sin[(2x)^2]$$
 
 $$\frac{\partial y}{\partial x} =\frac{\partial sin[(2x)^2]}{\partial (2x)^2} \frac{\partial (2x)^2}{\partial 2x} \frac{\partial 2x}{\partial x}$$
 
-Following the order of operations and operator overloading, we know that we are firstly calculating $2x$ and getting the coefficient of its infinitesimal part, which is the derivative, i.e. $\frac{\partial 2x}{\partial x}$. Then we get $\frac{\partial (2x)^2}{\partial 2x}$ and eventually $\frac{\partial sin[(2x)^2]}{\partial (2x)^2}$
+Following the order of operations and operator overloading, we know that we are firstly calculating $2x$ and getting the coefficient of its infinitesimal part, which is the derivative, i.e. $\frac{\partial 2x}{\partial x}$. Then we get $\frac{\partial (2x)^2}{\partial 2x}$ and eventually $\frac{\partial sin[(2x)^2]}{\partial (2x)^2}$.
+
+So now we know that the "forward mode" means calculating the derivitive from the right to the left through the chain rules:
+
+$$\frac{\partial y}{\partial x} = \overleftarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x}}$$
 
 ## Forward mode vs backward mode
 
