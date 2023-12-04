@@ -8,8 +8,15 @@ $$y = h ( g ( f(x) ) )$$
 
 $$\frac{\partial y}{\partial x} =\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x}$$
 
-With our dual number solution, we are decomposing calculations into elementary steps and getting the derivative of each step
+With our dual number solution, we are decomposing calculations into elementary steps and getting the derivative of each step. So the first derivative we get is $\frac{\partial f}{\partial x}$, then $\frac{\partial g}{\partial f}$ and eventually $\frac{\partial h}{\partial g}$.
 
+One more concrete example, let's have a function:
+
+$$y = sin[(2x)^2]$$
+
+$$\frac{\partial y}{\partial x} =\frac{\partial sin[(2x)^2]}{\partial (2x)^2} \frac{\partial (2x)^2}{\partial 2x} \frac{\partial 2x}{\partial x}$$
+
+Following the order of operations and operator overloading we know that we are calculating the derivative of $\frac{\partial 2x}{\partial x}$ first, then $\frac{\partial (2x)^2}{\partial 2x}$ and eventually $\frac{\partial sin[(2x)^2]}{\partial (2x)^2}$
 
 ## Forward mode vs backward mode
 
