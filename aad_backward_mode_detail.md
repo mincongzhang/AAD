@@ -16,7 +16,7 @@ $$y = sin[(2x)^2]$$
 
 $$\frac{\partial y}{\partial x} =\frac{\partial sin[(2x)^2]}{\partial (2x)^2} \frac{\partial (2x)^2}{\partial 2x} \frac{\partial 2x}{\partial x}$$
 
-Following the order of operations and operator overloading we know that we are firstly calculating $2x$ and getting its infinitesimal part, which is the derivative of $\frac{\partial 2x}{\partial x}$ first, then $\frac{\partial (2x)^2}{\partial 2x}$ and eventually $\frac{\partial sin[(2x)^2]}{\partial (2x)^2}$
+Following the order of operations and operator overloading, we know that we are firstly calculating $2x$ and getting its infinitesimal part, which is the derivative, i.e. $\frac{\partial 2x}{\partial x}$. Then we get $\frac{\partial (2x)^2}{\partial 2x}$ and eventually $\frac{\partial sin[(2x)^2]}{\partial (2x)^2}$
 
 ## Forward mode vs backward mode
 
