@@ -1,8 +1,15 @@
 ## Forward mode revisit
 
+Let's revisit our forward mode using dual numbers. We know that we can do calculations on infinitesimal parts using operator overloading and read the derivative from the coefficient of the infinitesimal part of the final result. 
+
+Consider a general function like below:
+
 $$y = h ( g ( f(x) ) )$$
 
 $$\frac{\partial y}{\partial x} =\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x}$$
+
+With our dual number solution, we are decomposing calculations into elementary steps and getting the derivative of each step
+
 
 ## Forward mode vs backward mode
 
