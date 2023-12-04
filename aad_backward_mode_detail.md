@@ -26,6 +26,8 @@ $$\frac{\partial y}{\partial x} = \overleftarrow{\frac{\partial h}{\partial g} \
 
 We know that we are going to talk about backward mode, and there must be some disadvantages of forward mode.
 
+https://jingnanshi.com/blog/autodiff.html
+
 ## Forward mode vs backward mode
 
 
