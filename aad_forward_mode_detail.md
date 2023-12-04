@@ -497,7 +497,7 @@ $$\frac{\partial y}{\partial x} = \overrightarrow{\frac{\partial h}{\partial g} 
 
 So we can only calculate $\frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$ once and apply it to the rest of the calculations? Yes we can. That's how our backward mode comes up. 
 
-Let's say $H = \frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$, then we can have:
+Let's denote $H = \frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$, then we can have:
 
 $$
 \begin{aligned}
@@ -508,4 +508,4 @@ $$
 \end{aligned}
 $$
 
-Let's look into backward mode later.
+We will look into backward mode later.
