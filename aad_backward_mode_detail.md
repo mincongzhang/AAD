@@ -43,7 +43,7 @@ Also have you noticed that we are doing $\frac{\partial h}{\partial g} \frac{\pa
 
 $$\frac{\partial y}{\partial x} = \overrightarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x}} $$
 
-So we can only calculate $\frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$ once and apply it to the rest of the calculations? yes we can. That's how our backward mode comes up. 
+So we can only calculate $\frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$ once and apply it to the rest of the calculations? Yes we can. That's how our backward mode comes up. 
 
 ## Backward mode
 
