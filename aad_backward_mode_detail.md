@@ -22,6 +22,10 @@ So now we know that the "forward mode" means calculating the derivitive from the
 
 $$\frac{\partial y}{\partial x} = \overleftarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x}} $$
 
+##  Disadvantages of Forward Mode
+
+We know that we are going to talk about backward mode, and there must be some disadvantages of forward mode.
+
 ## Forward mode vs backward mode
 
 
