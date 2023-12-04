@@ -28,16 +28,12 @@ We know that we are going to talk about backward mode, and there must be some di
 
 Since everyone is familiar with the fancy machine learning, let's take it as an example. In machine learning there won't be only one "x" parameter, there could be hundreds or thousands of paramaters. And if we are using forward mode to get the partial derivatives of all the parameters, we are going to do:
 
-$$\frac{\partial y}{\partial x_1} = \overleftarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x_1}} $$
-$$\frac{\partial y}{\partial x_2} = \overleftarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x_2}} $$
-$$\frac{\partial y}{\partial x_3} = \overleftarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x_3}} $$
-
 $$
 \begin{aligned}
 \frac{\partial y}{\partial x_1} &= \overleftarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x_1}}    \\
 \frac{\partial y}{\partial x_2} &= \overleftarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x_2}}    \\
-\frac{\partial y}{\partial x_3} &= \overleftarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x_3}}    \\
-... &= ...
+... \ &= \ ...   \\
+\frac{\partial y}{\partial x_n} &= \overleftarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x_n}}    \\
 \end{aligned}
 $$
 
