@@ -39,7 +39,7 @@ $$
 
 Have you noticed that we have $O(n)$ complexity on forward mode? This is the inefficience of forward mode when inputs are more than outputs, i.e. $f: \mathbb{R}^n \rightarrow \mathbb{R}^m$, where $n>m$. 
 
-But actually in other area if we have outputs more than inputs, like we have:
+But actually in other situations if we have outputs more than inputs, like we have:
 
 $$
 \begin{aligned}
@@ -50,7 +50,7 @@ $$
 \end{aligned}
 $$
 
-In this situation actually forward mode is a good choice!
+Actually forward mode is a good choice when inputs are less than outputs, i.e. $f: \mathbb{R}^n \rightarrow \mathbb{R}^m$, where $n<m$. 
 
 
 ### Backward mode intro
