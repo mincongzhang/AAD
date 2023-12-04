@@ -26,7 +26,7 @@ $$\frac{\partial y}{\partial x} = \overleftarrow{\frac{\partial h}{\partial g} \
 
 We know that we are going to talk about backward mode, and there must be some disadvantages of forward mode.
 
-Since everyone is familiar with the fancy machine learning, let's take it as an example. In machine learning there won't be only one $x$ input parameter, there could be hundreds or thousands of input paramaters. And if we are using forward mode to get the partial derivatives of all the parameters, we are going to do:
+Since everyone is familiar with the fancy machine learning, let's take it as an example. In machine learning there won't be only one $x$ input parameter, there could be hundreds or thousands of input paramaters. And if we are using forward mode to get the partial derivatives of all the parameters, we might have:
 
 $$
 \begin{aligned}
@@ -37,14 +37,19 @@ $$
 \end{aligned}
 $$
 
-Have you noticed that we have $O(n)$ complexity on forward mode? This is the inefficient part of forward mode when inputs are more than outputs. 
+Have you noticed that we have $O(n)$ complexity on forward mode? This is the inefficience of forward mode when inputs are more than outputs, i.e. $f: \mathbb{R}^n \rightarrow \mathbb{R}^m$, where $n>m$. 
 
-Also have you noticed that we are doing $\frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$ again and again?
+Also have you noticed that we are doing $\frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$ again and again? What if we go backward of the derivative like:
 
+$$\frac{\partial y}{\partial x} = \overrightarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x}} $$
+
+So we can only calculate $\frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$ once? yes we can. That's how our backward mode comes up. 
+
+## Backward mode
 
 https://jingnanshi.com/blog/autodiff.html
 
-## Forward mode vs backward mode
+
 
 
 forward mode problem:
