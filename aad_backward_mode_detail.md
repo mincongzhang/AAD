@@ -16,8 +16,10 @@ $$\frac{\partial y}{\partial x} = \overrightarrow{\frac{\partial h}{\partial g} 
 
 So we can only calculate $\frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$ once and apply it to the rest of the calculations. This is the idea of backward mode. 
 
-## Backward mode
+## Definitions and Terms
 Before looking into the details, let's go through some definitions and terms. 
+
+### Evaluation Trace
 
 As we have already known that in forward mode we decompose calculations into elementary steps, all the steps form an __evaluation trace__. 
 
