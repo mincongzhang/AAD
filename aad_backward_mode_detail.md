@@ -25,6 +25,19 @@ As we have already known that in forward mode we decompose calculations into ele
 
 Some also call this evaluation trace the __Wengert list__, which is named after the author of this paper *Wengert, Robert Edwin. "A simple automatic derivative evaluation program." Communications of the ACM 7.8 (1964): 463-464*.
 
+Let's take this function as an example, and evaluate the function when $x = 1$:
+
+$$y = sin[(2x)^2]$$
+
+| Intermediate Vars. | Expressions | Values |
+|:------------------:|:-----------:|:------:|
+| $v_0$              | $x$         | 1      |
+| $v_1$              | $2v_0$      | 2      |
+| $v_2$              | $v_1^2$     | 4      |
+| $v_3$              | $sin(v_2)$  | -0.76  |
+
+$$\frac{\partial y}{\partial x} =\frac{\partial sin[(2x)^2]}{\partial (2x)^2} \frac{\partial (2x)^2}{\partial 2x} \frac{\partial 2x}{\partial x}$$
+
 
 
 primal trace:
