@@ -40,7 +40,7 @@ All the steps below form an __evaluation trace__. The values of the intermediate
 | $v_2$                             | $v_1^2$     | 4                    |
 | $v_3$                             | $sin(v_2)$  | -0.76                |
 
-Now we extend the table for derivitives. The values of of the intermediate derivative variables are called the __tangent trace__:
+Now we extend the table for derivitives. The values of of the intermediate derivative variables are called the __tangent trace__.
 
 | Interm. Vars.                     | Expressions | Values (Primal Trace) | Interm. Deriv. Vars.     | Deriv. Expressions | Deriv. Values (Tangent Trace)| 
 |:---------------------------------:|:-----------:|:---------------------:|:------------------------:|:------------------:|:----------------------------:|
