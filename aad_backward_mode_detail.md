@@ -16,20 +16,8 @@ $$\frac{\partial y}{\partial x} = \overrightarrow{\frac{\partial h}{\partial g} 
 
 So we can only calculate $\frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$ once and apply it to the rest of the calculations. This is the idea of backward mode. 
 
-Let's denote $H = \frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$, then we can have:
-
-$$
-\begin{aligned}
-\frac{\partial y}{\partial x_1} &= H \left( \frac{\partial f}{\partial x_1}\right)    \\
-\frac{\partial y}{\partial x_2} &= H \left( \frac{\partial f}{\partial x_2}\right)     \\
-... \ &= \ ...   \\
-\frac{\partial y}{\partial x_n} &= H \left( \frac{\partial f}{\partial x_n}\right)     \\
-\end{aligned}
-$$
-
-
 ## Backward mode
-Terms:
+Before going into the details, let's define some terms. 
 
 evaluation trace:
 
