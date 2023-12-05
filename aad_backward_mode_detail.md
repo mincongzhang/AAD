@@ -45,7 +45,7 @@ Now we extend the table for derivitives. The values of of the intermediate deriv
 | Intermediate Vars.                | Expressions | Values (Primal Trace) | Intermediate Deriv Vars. | Deriv Expressions | Deriv Values (Tangent Trace)| 
 |:---------------------------------:|:-----------:|:---------------------:|:------------------------:|:-----------------:|:----------------------------:|
 | $v_0$                             | $x$         | 1                     |  $d_0$                   | 1                 | 1                            |
-| $v_1$                             | $2v_0$      | 2                     |  $d_1$                   | 2d_0              | 2                            |
+| $v_1$                             | $2v_0$      | 2                     |  $d_1$                   | $2d_0$            | 2                            |
 | $v_2$                             | $v_1^2$     | 4                     |  $d_2$                   | $2xd_1$           | 4                            |
 | $v_3$                             | $sin(v_2)$  | sin(4)                |  $d_3$                   | $cos(d_2)$        | cos(4)                       |
 
