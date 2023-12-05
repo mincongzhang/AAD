@@ -33,6 +33,15 @@ $$\frac{\partial y}{\partial x} =\frac{\partial sin[(2x)^2]}{\partial (2x)^2} \f
 
 All the steps below form a evaluation trace.
 
+| Intermediate Vars. (Primal Trace) | Expressions | Values | 
+|:---------------------------------:|:-----------:|:------:|
+| $v_0$                             | $x$         | 1      |
+| $v_1$                             | $2v_0$      | 2      |
+| $v_2$                             | $v_1^2$     | 4      |
+| $v_3$                             | $sin(v_2)$  | -0.76  |
+
+Now we extend it to derivitives:
+
 | Intermediate Vars. (Primal Trace) | Expressions | Values | Intermediate Deriv Vars. (Tangent Trace) | Deriv Expressions | 
 |:---------------------------------:|:-----------:|:------:|:----------------------------------------:|:-----------------:|
 | $v_0$                             | $x$         | 1      |  $d_0$                                   |
