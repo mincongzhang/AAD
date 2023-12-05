@@ -44,10 +44,10 @@ Now we extend it to derivitives:
 
 | Intermediate Vars. (Primal Trace) | Expressions | Values | Intermediate Deriv Vars. (Tangent Trace) | Deriv Expressions | 
 |:---------------------------------:|:-----------:|:------:|:----------------------------------------:|:-----------------:|
-| $v_0$                             | $x$         | 1      |  $d_0$                                   |
-| $v_1$                             | $2v_0$      | 2      |  $d_1$
-| $v_2$                             | $v_1^2$     | 4      |  $d_2$
-| $v_3$                             | $sin(v_2)$  | -0.76  |  $d_3$
+| $v_0$                             | $x$         | 1      |  $d_0$                                   | 1                 |
+| $v_1$                             | $2v_0$      | 2      |  $d_1$                                   | $2$               |
+| $v_2$                             | $v_1^2$     | 4      |  $d_2$                                   | $2d_1$            |
+| $v_3$                             | $sin(v_2)$  | -0.76  |  $d_3$                                   | $cos(d_2)$        |
 
 
 
