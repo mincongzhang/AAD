@@ -25,6 +25,11 @@ primal trace:
 
 tangent trace:
 
+
+evaluation trace:
+Wengert, Robert Edwin. "A simple automatic derivative evaluation program." Communications of the ACM 7.8 (1964): 463-464.
+
+
 This essentially gives us the way to conduct forward mode AD: by using dual numbers, we can get the primal and tangent trace simultaneously.
 
 
