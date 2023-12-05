@@ -33,7 +33,7 @@ $$\frac{\partial y}{\partial x} =\frac{\partial sin[(2x)^2]}{\partial (2x)^2} \f
 
 All the steps below form an __evaluation trace__. The values of the intermediate variables are sometimes called the __primal trace__.
 
-| Intermediate Vars. (Primal Trace) | Expressions | Values | 
+| Intermediate Vars.                | Expressions | Values (Primal Trace)| 
 |:---------------------------------:|:-----------:|:------:|
 | $v_0$                             | $x$         | 1      |
 | $v_1$                             | $2v_0$      | 2      |
