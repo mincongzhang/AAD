@@ -29,6 +29,8 @@ Let's take this function as an example, and evaluate the function when $x = 1$:
 
 $$y = sin[(2x)^2]$$
 
+All the steps below form a evaluation trace.
+
 | Intermediate Vars. | Expressions | Values |
 |:------------------:|:-----------:|:------:|
 | $v_0$              | $x$         | 1      |
