@@ -463,7 +463,7 @@ $$\frac{\partial y}{\partial x} = \overleftarrow{\frac{\partial h}{\partial g} \
 
 We know that we are going to talk about backward mode later, and there must be some disadvantages of forward mode.
 
-Since everyone is familiar with the fancy machine learning, let's take it as an example. In machine learning there won't be only one $x$ input parameter, there could be hundreds or thousands of input paramaters. And if we are using forward mode to get the partial derivatives of all the parameters, we might have:
+Since everyone is familiar with the fancy machine learning, let's take it as an example. When training neural networks, there could be millions of learnable parameters. And if we are using forward mode to get the partial derivatives of all the parameters, we might have:
 
 $$
 \begin{aligned}
@@ -487,7 +487,7 @@ $$
 \end{aligned}
 $$
 
-Actually forward mode is a good choice when inputs are less than outputs, i.e. $f: \mathbb{R}^n \rightarrow \mathbb{R}^m$, where $n \lt m$. 
+Actually forward mode is a good choice in this situation, i.e. $f: \mathbb{R}^n \rightarrow \mathbb{R}^m$, where $n \lt m$. 
 
 ### Forward to Backward
 
