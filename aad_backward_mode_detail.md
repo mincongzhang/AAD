@@ -21,9 +21,7 @@ So we can only calculate $\frac{\partial h}{\partial g} \frac{\partial g}{\parti
 
 Before looking into the details, let's go through some definitions and terms. 
 
-As we have already known that in forward mode we decompose calculations into elementary steps, all the steps form an __evaluation trace__. 
-
-Some also call this evaluation trace the __Wengert list__, which is named after the author of this paper *Wengert, Robert Edwin. "A simple automatic derivative evaluation program." Communications of the ACM 7.8 (1964): 463-464*.
+As we have already known that in forward mode we decompose calculations into elementary steps, now we define all the steps form an __evaluation trace__. Some also call this evaluation trace the __Wengert list__, which is named after the author of this paper *Wengert, Robert Edwin. "A simple automatic derivative evaluation program." Communications of the ACM 7.8 (1964): 463-464*.
 
 Let's take this function as an example and its derivative, and evaluate the function when $x = 1$:
 
