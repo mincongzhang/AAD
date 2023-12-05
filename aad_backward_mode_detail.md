@@ -31,7 +31,7 @@ $$y = sin[(2x)^2]$$
 
 $$\frac{\partial y}{\partial x} =\frac{\partial sin[(2x)^2]}{\partial (2x)^2} \frac{\partial (2x)^2}{\partial 2x} \frac{\partial 2x}{\partial x}$$
 
-All the steps below form a evaluation trace.
+All the steps below form an __evaluation trace__. The values of the intermediate variables are sometimes called the __primal trace__.
 
 | Intermediate Vars. (Primal Trace) | Expressions | Values | 
 |:---------------------------------:|:-----------:|:------:|
