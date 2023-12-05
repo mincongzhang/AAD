@@ -34,20 +34,20 @@ $$\frac{\partial y}{\partial x} =\frac{\partial sin[(2x)^2]}{\partial (2x)^2} \f
 All the steps below form an __evaluation trace__. The values of the intermediate variables are sometimes called the __primal trace__.
 
 | Intermediate Vars.                | Expressions | Values (Primal Trace)| 
-|:---------------------------------:|:-----------:|:------:|
-| $v_0$                             | $x$         | 1      |
-| $v_1$                             | $2v_0$      | 2      |
-| $v_2$                             | $v_1^2$     | 4      |
-| $v_3$                             | $sin(v_2)$  | -0.76  |
+|:---------------------------------:|:-----------:|:--------------------:|
+| $v_0$                             | $x$         | 1                    |
+| $v_1$                             | $2v_0$      | 2                    |
+| $v_2$                             | $v_1^2$     | 4                    |
+| $v_3$                             | $sin(v_2)$  | -0.76                |
 
 Now we extend it to derivitives:
 
-| Intermediate Vars. (Primal Trace) | Expressions | Values | Intermediate Deriv Vars. (Tangent Trace) | Deriv Expressions | 
-|:---------------------------------:|:-----------:|:------:|:----------------------------------------:|:-----------------:|
-| $v_0$                             | $x$         | 1      |  $d_0$                                   | 1                 |
-| $v_1$                             | $2v_0$      | 2      |  $d_1$                                   | 2                 |
-| $v_2$                             | $v_1^2$     | 4      |  $d_2$                                   | $2x$              |
-| $v_3$                             | $sin(v_2)$  | -0.76  |  $d_3$                                   | $cos(d_2)$        |
+| Intermediate Vars.                | Expressions | Values (Primal Trace) | Intermediate Deriv Vars. (Tangent Trace) | Deriv Expressions | Deriv Values ( tangent trace)| 
+|:---------------------------------:|:-----------:|:---------------------:|:----------------------------------------:|:-----------------:|:----------------------------:|
+| $v_0$                             | $x$         | 1                     |  $d_0$                                   | 1                 | 1                            |
+| $v_1$                             | $2v_0$      | 2                     |  $d_1$                                   | 2d_0              | 2                            |
+| $v_2$                             | $v_1^2$     | 4                     |  $d_2$                                   | $2xd_1$           | 4                            |
+| $v_3$                             | $sin(v_2)$  | sin(4)                |  $d_3$                                   | $cos(d_2)$        | cos(4)                       |
 
 
 
