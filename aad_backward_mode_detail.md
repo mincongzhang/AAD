@@ -17,9 +17,13 @@ $$\frac{\partial y}{\partial x} = \overrightarrow{\frac{\partial h}{\partial g} 
 So we can only calculate $\frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$ once and apply it to the rest of the calculations. This is the idea of backward mode. 
 
 ## Backward mode
-Before going into the details, let's define some terms. 
+Before looking into the details, let's go through some definitions and terms. 
 
-evaluation trace:
+As we have already known that in forward mode we decompose calculations into elementary steps, all the steps form an __evaluation trace__. 
+
+Some also call this evaluation trace the __Wengert list__, which is named after the author of this paper *Wengert, Robert Edwin. "A simple automatic derivative evaluation program." Communications of the ACM 7.8 (1964): 463-464*.
+
+
 
 primal trace:
 
@@ -27,7 +31,6 @@ tangent trace:
 
 
 evaluation trace:
-Wengert, Robert Edwin. "A simple automatic derivative evaluation program." Communications of the ACM 7.8 (1964): 463-464.
 
 
 This essentially gives us the way to conduct forward mode AD: by using dual numbers, we can get the primal and tangent trace simultaneously.
