@@ -31,16 +31,14 @@ $$y = sin[(2x)^2]$$
 
 $$\frac{\partial y}{\partial x} =\frac{\partial sin[(2x)^2]}{\partial (2x)^2} \frac{\partial (2x)^2}{\partial 2x} \frac{\partial 2x}{\partial x}$$
 
-
-
 All the steps below form a evaluation trace.
 
-| Intermediate Vars. | Expressions | Values |
-|:------------------:|:-----------:|:------:|
-| $v_0$              | $x$         | 1      |
-| $v_1$              | $2v_0$      | 2      |
-| $v_2$              | $v_1^2$     | 4      |
-| $v_3$              | $sin(v_2)$  | -0.76  |
+| Intermediate Vars. (Primal Trace) | Expressions | Values | Intermediate Deriv Vars. (Tangent Trace) | Deriv Expressions | 
+|:---------------------------------:|:-----------:|:------:|:----------------------------------------:|:-----------------:|
+| $v_0$                             | $x$         | 1      |  $d_0$                                   |
+| $v_1$                             | $2v_0$      | 2      |  $d_1$
+| $v_2$                             | $v_1^2$     | 4      |  $d_2$
+| $v_3$                             | $sin(v_2)$  | -0.76  |  $d_3$
 
 
 
