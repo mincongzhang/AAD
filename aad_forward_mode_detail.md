@@ -8,6 +8,15 @@ There are a number of methods for writing software to compute derivatives of fun
 2. finite differences, i.e. $f'(x) = \lim_{\delta \to 0} \frac{f(x+\delta) - f(x)}{\delta}$
 3. automatic differentiation, which provides a way to compute multiple derivatives of highly complex functions efficiently and accurately
 
+
+# TODO:
+
+```
+https://en.wikipedia.org/wiki/Automatic_differentiation
+
+Automatic differentiation is distinct from symbolic differentiation and numerical differentiation. Symbolic differentiation faces the difficulty of converting a computer program into a single mathematical expression and can lead to inefficient code. Numerical differentiation (the method of finite differences) can introduce round-off errors in the discretization process and cancellation. Both of these classical methods have problems with calculating higher derivatives, where complexity and errors increase. Finally, both of these classical methods are slow at computing partial derivatives of a function with respect to many inputs, as is needed for gradient-based optimization algorithms. Automatic differentiation solves all of these problems.
+```
+
 ## Background - Two classic approaches to computing derivatives
 
 ### 1. Symbolic Expression
