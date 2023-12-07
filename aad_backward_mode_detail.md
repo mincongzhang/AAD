@@ -56,6 +56,8 @@ __Backward mode__
 
 First, we need to do a forward pass, where we obtain the primal trace (Table 2). We then propagate the partials backward to obtain the desired derivatives (following the chain rule).
 
+it takes only one application of reverse mode to compute the entire gradient. In general, if the dimension of the outputs is significantly smaller than that of inputs, reverse mode is a better choice.
+
 __How Backward is better than Forward?__
 
 
