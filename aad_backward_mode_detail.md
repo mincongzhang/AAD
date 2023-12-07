@@ -49,32 +49,17 @@ Now we extend the table for derivitives. The values of of the intermediate deriv
 
 
 
-
+__Forward mode__
 This essentially gives us the way to conduct forward mode AD: by using dual numbers, we can get the primal and tangent trace simultaneously.
+
+__Backward mode__
 
 First, we need to do a forward pass, where we obtain the primal trace (Table 2). We then propagate the partials backward to obtain the desired derivatives (following the chain rule).
 
-
+__How Backward is better than Forward?__
 
 
 https://jingnanshi.com/blog/autodiff.html
-
-
-
-
-forward mode problem:
-complexity
-
-so we need backward mode
-
-Evaluation Trace: 原公式计算流程
-
-Tangent Trace: chain rules, depends on the derivatives and values of the earlier variables. The values of the intermediate variables are sometimes called the primal trace, and the derivative values the tangent trace.
-
-
-In terms of complexity:
-
-forward mode
 
 -----------
 
