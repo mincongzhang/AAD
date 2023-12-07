@@ -49,17 +49,8 @@ Now we extend the table for derivitives. The values of of the intermediate deriv
 
 
 
-primal trace:
-
-tangent trace:
-
-
-evaluation trace:
-
 
 This essentially gives us the way to conduct forward mode AD: by using dual numbers, we can get the primal and tangent trace simultaneously.
-
-
 
 First, we need to do a forward pass, where we obtain the primal trace (Table 2). We then propagate the partials backward to obtain the desired derivatives (following the chain rule).
 
