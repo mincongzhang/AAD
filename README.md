@@ -106,6 +106,15 @@ https://www.cs.toronto.edu/~rgrosse/courses/csc2541_2022/tutorials/tut01.pdf
 
 https://www.cs.toronto.edu/~rgrosse/courses/csc321_2018/slides/lec10.pdf
 
-## Forward Mode Detail Explain
+## Forward Mode Details
 
 https://github.com/mincongzhang/AAD/blob/main/aad_forward_mode_detail.md
+
+## Backward Mode Details
+
+https://github.com/mincongzhang/AAD/blob/main/aad_backward_mode_detail.md
+
+## Second Derivative
+### Hessian automatic differentiation
+
+https://en.wikipedia.org/wiki/Hessian_automatic_differentiation
