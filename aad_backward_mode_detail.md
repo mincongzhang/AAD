@@ -48,6 +48,7 @@ Now we extend the table for derivitives. The values of of the intermediate deriv
 
 
 __Forward mode__
+
 This essentially gives us the way to conduct forward mode AD: by using dual numbers, we can get the primal and tangent trace simultaneously.
 
 __Backward mode__
