@@ -47,9 +47,10 @@ Now we extend the table for derivitives. The values of of the intermediate deriv
 
 
 
-__Forward mode__
+#### Forward mode
 
-This essentially gives us the way to conduct forward mode AD: by using dual numbers, we can get the primal and tangent trace simultaneously.
+When we use dual numbers to conduct the forward mode automatic differentiation, we use operator overloading and get the __primal trace__ from the __real number part__ and get the __tangent trace__ from the __infinitesimal part__ at the same time. 
+
 
 __Backward mode__
 
