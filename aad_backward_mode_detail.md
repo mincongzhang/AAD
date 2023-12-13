@@ -60,9 +60,9 @@ When we use dual numbers to conduct the forward mode automatic differentiation, 
 
 #### Backward mode
 
-Let's see how can we 
+Let's see how can we get the derivative with backward mode. First, we need to do a forward pass to get the table. 
 
-First, we need to do a forward pass, where we obtain the primal trace (Table 2). We then propagate the partials backward to obtain the desired derivatives (following the chain rule).
+We then propagate the partials backward to obtain the desired derivatives (following the chain rule).
 
 | Interm. Vars.                     | Expressions | Values (Primal Trace) | Interm. Deriv. Vars.     | Deriv. Expressions | Deriv. Values (Tangent Trace)| Backward |
 |:---------------------------------:|:-----------:|:---------------------:|:------------------------:|:------------------:|:----------------------------:|:--------:|          
