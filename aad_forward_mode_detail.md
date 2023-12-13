@@ -55,7 +55,14 @@ We can improve the accuracy using __central differences__, i.e. $\frac{f(x+\delt
 
 Note that this also requires two seperate evaluations of $f$. If we generalise this method to compute $n$ partial derivatives of a function then we can expect to require $n+1$ separate computations of $f$.
 
-## Forward Mode - Dual Numbers
+But still this approach would introduce round-off errors.
+
+### 3. Problems on these classic approaches
+
+Both of these classical methods have problems with calculating higher derivatives, where complexity and errors increase. Finally, both of these classical methods are slow at computing partial derivatives of a function with respect to many inputs, as is needed for gradient-based optimization algorithms. Automatic differentiation solves all of these problems.
+
+
+## Automatic Differentiation: Forward Mode With Dual Numbers
 
 Let's check the equation again:
 
