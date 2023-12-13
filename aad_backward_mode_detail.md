@@ -10,11 +10,9 @@ We have noticed that in forward mode we are decomposing calculations into elemen
 
 $$\frac{\partial y}{\partial x} = \overleftarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x}} $$
 
-In forward mode we are doing $\frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$ again and again. We can try go backward on the chain:
+We can also try go backward on the chain. And we call this backward mode:
 
 $$\frac{\partial y}{\partial x} = \overrightarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x}} $$
-
-So we can only calculate $\frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$ once and apply it to the rest of the calculations. This is the idea of backward mode. 
 
 
 ### Evaluation Trace, Primal Trace and Tangent Trace
