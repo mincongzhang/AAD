@@ -4,22 +4,13 @@
 
 There are a number of methods for writing software to compute derivatives of functions and their approximations: 
 
-1. derive symbolic expressions for the derivative manually and then directly code the resulting expressions, i.e. $f(x)=x^2$, $f'(x) = 2x$
-2. finite differences, i.e. $f'(x) = \lim_{\delta \to 0} \frac{f(x+\delta) - f(x)}{\delta}$
-3. automatic differentiation, which provides a way to compute multiple derivatives of highly complex functions efficiently and accurately
-
-
-# TODO:
-
-```
-https://en.wikipedia.org/wiki/Automatic_differentiation
-
-Automatic differentiation is distinct from symbolic differentiation and numerical differentiation. Symbolic differentiation faces the difficulty of converting a computer program into a single mathematical expression and can lead to inefficient code. Numerical differentiation (the method of finite differences) can introduce round-off errors in the discretization process and cancellation. Both of these classical methods have problems with calculating higher derivatives, where complexity and errors increase. Finally, both of these classical methods are slow at computing partial derivatives of a function with respect to many inputs, as is needed for gradient-based optimization algorithms. Automatic differentiation solves all of these problems.
-```
+1. Symbolic differentiation: derive symbolic expressions for the derivative manually and then directly code the resulting expressions, i.e. $f(x)=x^2$, $f'(x) = 2x$
+2. Numerical differentiation: finite differences, i.e. $f'(x) = \lim_{\delta \to 0} \frac{f(x+\delta) - f(x)}{\delta}$
+3. Automatic differentiation, which provides a way to compute multiple derivatives of highly complex functions efficiently and accurately
 
 ## Background - Two classic approaches to computing derivatives
 
-### 1. Symbolic Expression
+### 1. Symbolic differentiation
 
 Derive a symbolic expression for the derivative manually and then directly code the resulting expression might be the most popular approach to computing derivatives. 
 
@@ -43,13 +34,13 @@ $$
 
 Ultimately we get the differentiable expressions and we can compute derivatives. This is straightforward and intuitive. But the disadvantages would be:
 
-(1)It could be tedious and error prone if we have multiple variables and complicated function
+- It could be tedious and error prone if we have multiple variables and complicated function
 
-(2)Every modification to the function must be repeated in differential form
+- Every modification to the function must be repeated in differential form
 
 e.g. if we have 1000 variables and a functions with 1000 chains then it could be almost impossible to manually get the derivitives. We could of course try to use some tool like a derivative calculator to get the derivitives and then code the expressions, but this complicates the build process and put constrains on coding styles.  
 
-### 2. Finite Differences
+### 2. Numerical differentiation: Finite Differences
 
 By definition, the derivative of a function $f$, written $`f'(x)`$ or $\frac{df}{dx}$ is defined by 
 
