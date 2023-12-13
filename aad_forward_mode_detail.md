@@ -468,53 +468,8 @@ So now we know that the "forward mode" means calculating the derivitive from the
 
 $$\frac{\partial y}{\partial x} = \overleftarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x}} $$
 
-##  Forward Mode: Pros and Cons
-
-We know that we are going to talk about backward mode later, and there must be some disadvantages of forward mode.
-
-Since everyone is familiar with the fancy machine learning, let's take it as an example. When training neural networks, there could be millions of learnable parameters. And if we are using forward mode to get the partial derivatives of all the parameters, we might have:
-
-$$
-\begin{aligned}
-\frac{\partial y}{\partial x_1} &= \overleftarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x_1}}    \\
-\frac{\partial y}{\partial x_2} &= \overleftarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x_2}}    \\
-... \ &= \ ...   \\
-\frac{\partial y}{\partial x_n} &= \overleftarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x_n}}    \\
-\end{aligned}
-$$
-
-Have you noticed that we have $O(n)$ complexity on forward mode? This is the inefficience of forward mode when inputs are more than outputs, i.e. $f: \mathbb{R}^n \rightarrow \mathbb{R}^m$, where $n \gt m$. 
-
-But in other situations if we have outputs more than inputs, like we have:
-
-$$
-\begin{aligned}
-\frac{\partial y_1}{\partial x} &= \overleftarrow{\frac{\partial h_1}{\partial g_1} \frac{\partial g_1}{\partial f_1} \frac{\partial f_1}{\partial x}}    \\
-\frac{\partial y_2}{\partial x} &= \overleftarrow{\frac{\partial h_2}{\partial g_2} \frac{\partial g_2}{\partial f_2} \frac{\partial f_2}{\partial x}}    \\
-... \ &= \ ...   \\
-\frac{\partial y_n}{\partial x} &= \overleftarrow{\frac{\partial h_n}{\partial g_n} \frac{\partial g_n}{\partial f_n} \frac{\partial f_n}{\partial x}}    \\
-\end{aligned}
-$$
-
-Actually forward mode is a good choice in this situation, i.e. $f: \mathbb{R}^n \rightarrow \mathbb{R}^m$, where $n \lt m$. 
-
-### Forward to Backward
-
-Have you noticed that we are doing $\frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$ again and again? What if we go backward of the derivative like:
+Since we introduced "forward mode" then there must be a "backward mode" like:
 
 $$\frac{\partial y}{\partial x} = \overrightarrow{\frac{\partial h}{\partial g} \frac{\partial g}{\partial f} \frac{\partial f}{\partial x}} $$
-
-So we can only calculate $\frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$ once and apply it to the rest of the calculations? Yes we can. That's how our backward mode comes up. 
-
-Let's denote $H = \frac{\partial h}{\partial g} \frac{\partial g}{\partial f}$, then we can have:
-
-$$
-\begin{aligned}
-\frac{\partial y}{\partial x_1} &= H \left( \frac{\partial f}{\partial x_1}\right)    \\
-\frac{\partial y}{\partial x_2} &= H \left( \frac{\partial f}{\partial x_2}\right)     \\
-... \ &= \ ...   \\
-\frac{\partial y}{\partial x_n} &= H \left( \frac{\partial f}{\partial x_n}\right)     \\
-\end{aligned}
-$$
 
 We will look into backward mode later.
