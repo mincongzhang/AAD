@@ -64,6 +64,13 @@ Let's see how can we
 
 First, we need to do a forward pass, where we obtain the primal trace (Table 2). We then propagate the partials backward to obtain the desired derivatives (following the chain rule).
 
+| Interm. Vars.                     | Expressions | Values (Primal Trace) | Interm. Deriv. Vars.     | Deriv. Expressions | Deriv. Values (Tangent Trace)| Backward |
+|:---------------------------------:|:-----------:|:---------------------:|:------------------------:|:------------------:|:----------------------------:|:--------:|          
+| $v_0$                             | $x$         | 1                     |  $d_0$                   | 1                  | 1                            |    ↑     |
+| $v_1$                             | $2v_0$      | 2                     |  $d_1$                   | $2d_0$             | 2                            |    ↑     |
+| $v_2$                             | $v_1^2$     | 4                     |  $d_2$                   | $2xd_1$            | 4                            |    ↑     |
+| $v_3$                             | $sin(v_2)$  | sin(4)                |  $d_3$                   | $cos(d_2)$         | cos(4)                       |    ↑     |
+
 it takes only one application of reverse mode to compute the entire gradient. In general, if the dimension of the outputs is significantly smaller than that of inputs, reverse mode is a better choice.
 
 __How Backward is better than Forward?__
