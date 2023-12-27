@@ -62,12 +62,14 @@ Let's see how can we get the derivative with backward mode. First, we need to do
 
 We then propagate the partials backward to obtain the desired derivatives (following the chain rule).
 
-| Interm. Vars.                     | Expressions | Values (Primal Trace) | Interm. Deriv. Vars.     | Deriv. Expressions | Deriv. Values (Tangent Trace)| Backward |
-|:---------------------------------:|:-----------:|:---------------------:|:------------------------:|:------------------:|:----------------------------:|:--------:|          
-| $v_0$                             | $x$         | 1                     |  $d_0$                   | 1                  | 1                            |    ↑     |
-| $v_1$                             | $2v_0$      | 2                     |  $d_1$                   | $2d_0$             | 2                            |    ↑     |
-| $v_2$                             | $v_1^2$     | 4                     |  $d_2$                   | $2xd_1$            | 4                            |    ↑     |
-| $v_3$                             | $sin(v_2)$  | sin(4)                |  $d_3$                   | $cos(d_2)$         | cos(4)                       |    ↑     |
+| Intermediate Vars.                | Expressions               | Expression Eval. | Values (Primal Trace)|  Interm. Deriv. Vars.    | Deriv. Expressions     |   Deriv. Expressions Eval.    | Deriv. Values (Tangent Trace)| Backward |
+|:----------------------------------|:--------------------------|:----------------|:----------------------|:-------------------------|:-----------------------|:------------------------------|:----------------------------:|:-------:|          
+| $v_0$                             | $x$                       | $x$             | 3                     |  $d_0$                   | 1                      | 1                             | 1                            |    ↑    |
+| $v_1$                             | $2v_0$                    | $2x$            | 6                     |  $d_1$                   | $d_0 \cdot 2$          | 2                             | 2                            |    ↑    |
+| $v_2$                             | $v_1^2$                   | $(2x)^2$        | 36                    |  $d_2$                   | $d_1 \cdot 2\cdot2x$   | $8x$                          | 24                           |    ↑    |
+| $v_3$                             | $sin(v_2)$                | $sin[(2x)^2]$   | sin(36)               |  $d_3$                   | $d_2 \cdot cos[(2x)^2]$| $8x \cdot cos[(2x)^2]$        | 24cos(36)                    |    ↑    |
+
+
 
 it takes only one application of reverse mode to compute the entire gradient. In general, if the dimension of the outputs is significantly smaller than that of inputs, reverse mode is a better choice.
 
