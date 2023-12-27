@@ -49,12 +49,12 @@ Now we extend the table for derivitives. The values of of the intermediate deriv
 
 When we use dual numbers to conduct the forward mode automatic differentiation, we use operator overloading and get the __primal trace__ from the __real number part__ and get the __tangent trace__ from the __infinitesimal part__ at the same time, and eventually we get the derivative from the __tangent trace__.
 
-| Interm. Vars.                     | Expressions | Values (Primal Trace) | Interm. Deriv. Vars.     | Deriv. Expressions | Deriv. Values (Tangent Trace)| Forward |
-|:---------------------------------:|:-----------:|:---------------------:|:------------------------:|:------------------:|:----------------------------:|:-------:|          
-| $v_0$                             | $x$         | 1                     |  $d_0$                   | 1                  | 1                            |    ↓    |
-| $v_1$                             | $2v_0$      | 2                     |  $d_1$                   | $2d_0$             | 2                            |    ↓    |
-| $v_2$                             | $v_1^2$     | 4                     |  $d_2$                   | $2xd_1$            | 4                            |    ↓    |
-| $v_3$                             | $sin(v_2)$  | sin(4)                |  $d_3$                   | $cos(d_2)$         | cos(4)                       |    ↓    |
+| Intermediate Vars.                | Expressions               | Expression Eval. | Values (Primal Trace)|  Interm. Deriv. Vars.    | Deriv. Expressions     |   Deriv. Expressions Eval.    | Deriv. Values (Tangent Trace)| Forward |
+|:----------------------------------|:--------------------------|:----------------|:----------------------|:-------------------------|:-----------------------|:------------------------------|:----------------------------:|:-------:|          
+| $v_0$                             | $x$                       | $x$             | 3                     |  $d_0$                   | 1                      | 1                             | 1                            |    ↓    |
+| $v_1$                             | $2v_0$                    | $2x$            | 6                     |  $d_1$                   | $d_0 \cdot 2$          | 2                             | 2                            |    ↓    |
+| $v_2$                             | $v_1^2$                   | $(2x)^2$        | 36                    |  $d_2$                   | $d_1 \cdot 2\cdot2x$   | $8x$                          | 24                           |    ↓    |
+| $v_3$                             | $sin(v_2)$                | $sin[(2x)^2]$   | sin(36)               |  $d_3$                   | $d_2 \cdot cos[(2x)^2]$| $8x \cdot cos[(2x)^2]$        | 24cos(36)                    |    ↓    |
 
 #### Backward mode
 
