@@ -56,6 +56,9 @@ When we use dual numbers to conduct the forward mode automatic differentiation, 
 | $v_2$                             | $v_1^2$                   | $(2x)^2$        | 36                    |  $d_2$                   | $d_1 \cdot 2\cdot2x$   | $8x$                          | 24                           |    ↓    |
 | $v_3$                             | $sin(v_2)$                | $sin[(2x)^2]$   | sin(36)               |  $d_3$                   | $d_2 \cdot cos[(2x)^2]$| $8x \cdot cos[(2x)^2]$        | 24cos(36)                    |    ↓    |
 
+![image](https://github.com/mincongzhang/AAD/assets/5571030/b131db64-e1f2-4ccc-bc6b-0ec714272c3c)
+
+
 ### How Backward Mode Works
 
 Let's see how can we get the derivative with backward mode. First, we need to do a forward pass to get the table. 
@@ -71,9 +74,12 @@ We then propagate the partials backward to obtain the desired derivatives (follo
 
 
 
-it takes only one application of reverse mode to compute the entire gradient. In general, if the dimension of the outputs is significantly smaller than that of inputs, reverse mode is a better choice.
+![image](https://github.com/mincongzhang/AAD/assets/5571030/4576edd3-9300-436a-a223-72081122c041)
+
 
 __How Backward is better than Forward?__
+
+it takes only one application of reverse mode to compute the entire gradient. In general, if the dimension of the outputs is significantly smaller than that of inputs, reverse mode is a better choice.
 
 
 https://jingnanshi.com/blog/autodiff.html
