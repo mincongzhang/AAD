@@ -72,9 +72,7 @@ We then propagate the partials backward to obtain the desired derivatives (follo
 | $v_2$                             | $v_1^2$                   | $(2x)^2$        | 36                    |  $d_2$                   | $d_1 \cdot 2\cdot2x$   | $8x$                          | 24                           |    ↑    |
 | $v_3$                             | $sin(v_2)$                | $sin[(2x)^2]$   | sin(36)               |  $d_3$                   | $d_2 \cdot cos[(2x)^2]$| $8x \cdot cos[(2x)^2]$        | 24cos(36)                    |    ↑    |
 
-
-
-![image](https://github.com/mincongzhang/AAD/assets/5571030/4576edd3-9300-436a-a223-72081122c041)
+![image](https://github.com/mincongzhang/AAD/assets/5571030/790831a3-bd04-4af6-a4d6-62950616d3b8)
 
 
 __How Backward is better than Forward?__
