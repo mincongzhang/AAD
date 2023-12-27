@@ -61,7 +61,7 @@ When we use dual numbers to conduct the forward mode automatic differentiation, 
 
 ### How Backward Mode Works
 
-Let's see how can we get the derivative with backward mode. First, we need to do a forward pass to get the table. 
+Let's see how can we get the derivative with backward mode. First, we need to do a forward pass to get the table for primal trace. 
 
 We then propagate the partials backward to obtain the desired derivatives (following the chain rule).
 
