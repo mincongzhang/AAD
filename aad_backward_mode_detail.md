@@ -45,7 +45,7 @@ Now we extend the table for derivitives. The values of of the intermediate deriv
 | $v_2$                             | $v_1^2$                   | $(2x)^2$        | 36                    |  $d_2$                   | $d_1 \cdot 2\cdot2x$   | $8x$                          | 24                           |
 | $v_3$                             | $sin(v_2)$                | $sin[(2x)^2]$   | sin(36)               |  $d_3$                   | $d_2 \cdot cos[(2x)^2]$| $8x \cdot cos[(2x)^2]$        | 24cos(36)                    |
 
-#### Forward mode
+### How Forward Mode Works
 
 When we use dual numbers to conduct the forward mode automatic differentiation, we use operator overloading and get the __primal trace__ from the __real number part__ and get the __tangent trace__ from the __infinitesimal part__ at the same time, and eventually we get the derivative from the __tangent trace__.
 
@@ -56,7 +56,7 @@ When we use dual numbers to conduct the forward mode automatic differentiation, 
 | $v_2$                             | $v_1^2$                   | $(2x)^2$        | 36                    |  $d_2$                   | $d_1 \cdot 2\cdot2x$   | $8x$                          | 24                           |    ↓    |
 | $v_3$                             | $sin(v_2)$                | $sin[(2x)^2]$   | sin(36)               |  $d_3$                   | $d_2 \cdot cos[(2x)^2]$| $8x \cdot cos[(2x)^2]$        | 24cos(36)                    |    ↓    |
 
-#### Backward mode
+### How Backward Mode Works
 
 Let's see how can we get the derivative with backward mode. First, we need to do a forward pass to get the table. 
 
