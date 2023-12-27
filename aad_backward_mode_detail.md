@@ -41,7 +41,7 @@ Now we extend the table for derivitives. The values of of the intermediate deriv
 | Interm. Vars.                     | Expressions | Values (Primal Trace) | Interm. Deriv. Vars.     | Deriv. Expressions     |   Deriv. Expressions Eval.    | Deriv. Values (Tangent Trace)| 
 |:---------------------------------:|:-----------:|:---------------------:|:------------------------:|:----------------------:|:-----------------------------:|:----------------------------:|
 | $v_0$                             | $x$         | 3                     |  $d_0$                   | 1                      | 1                             | 1                            |
-| $v_1$                             | $2v_0$      | 6                     |  $d_1$                   | $2d_0 = 2$             | 2                             | 2                            |
+| $v_1$                             | $2v_0$      | 6                     |  $d_1$                   | $2d_0$                 | 2                             | 2                            |
 | $v_2$                             | $v_1^2$     | 36                    |  $d_2$                   | $2\cdot2x\cdot d_1$    | $8x$                          | 24                           |
 | $v_3$                             | $sin(v_2)$  | sin(36)               |  $d_3$                   | $d_2 \cdot cos[(2x)^2]$| $8x \cdot cos[(2x)^2]$        | 24cos(36)                    |
 
