@@ -21,7 +21,7 @@ Before looking into the details, let's go through some definitions and terms.
 
 As we have already known that in forward mode we decompose calculations into elementary steps, now we define all the steps form an __evaluation trace__. Some also call this evaluation trace the __Wengert list__, which is named after the author of this paper *Wengert, Robert Edwin. "A simple automatic derivative evaluation program." Communications of the ACM 7.8 (1964): 463-464*.
 
-Let's take this function as an example and its derivative, and evaluate the function when $x = 1$:
+Let's take this function as an example and its derivative, and evaluate the function when $x = 3$:
 
 $$y = h ( g ( f(x) ) ) = sin[(2x)^2]$$
 
@@ -31,19 +31,19 @@ All the steps below form an __evaluation trace__. The values of the intermediate
 
 | Intermediate Vars.                | Expressions | Values (Primal Trace)| 
 |:---------------------------------:|:-----------:|:--------------------:|
-| $v_0$                             | $x$         | 1                    |
-| $v_1$                             | $2v_0$      | 2                    |
-| $v_2$                             | $v_1^2$     | 4                    |
-| $v_3$                             | $sin(v_2)$  | sin(4)               |
+| $v_0$                             | $x$         | 3                    |
+| $v_1$                             | $2v_0$      | 6                    |
+| $v_2$                             | $v_1^2$     | 36                   |
+| $v_3$                             | $sin(v_2)$  | sin(36)              |
 
-Now we extend the table for derivitives. The values of of the intermediate derivative variables are called the __tangent trace__. And we still set $x = 1$.
+Now we extend the table for derivitives. The values of of the intermediate derivative variables are called the __tangent trace__. And we still set $x = 3$.
 
 | Interm. Vars.                     | Expressions | Values (Primal Trace) | Interm. Deriv. Vars.     | Deriv. Expressions | Deriv. Values (Tangent Trace)| 
 |:---------------------------------:|:-----------:|:---------------------:|:------------------------:|:------------------:|:----------------------------:|
-| $v_0$                             | $x$         | 1                     |  $d_0$                   | 1                  | 1                            |
-| $v_1$                             | $2v_0$      | 2                     |  $d_1$                   | $2d_0$             | 2                            |
-| $v_2$                             | $v_1^2$     | 4                     |  $d_2$                   | $2xd_1$            | 4                            |
-| $v_3$                             | $sin(v_2)$  | sin(4)                |  $d_3$                   | $cos(d_2)$         | cos(4)                       |
+| $v_0$                             | $x$         | 3                     |  $d_0$                   | 1                  | 1                            |
+| $v_1$                             | $2v_0$      | 6                     |  $d_1$                   | $2d_0$             | 2                            |
+| $v_2$                             | $v_1^2$     | 36                    |  $d_2$                   | $2xd_1$            | 12                           |
+| $v_3$                             | $sin(v_2)$  | sin(36)               |  $d_3$                   | $cos(d_2)$         | cos(12)                      |
 
 
 
