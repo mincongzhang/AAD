@@ -29,12 +29,12 @@ $$\frac{\partial y}{\partial x} = \frac{\partial h}{\partial g} \frac{\partial g
 
 All the steps below form an __evaluation trace__. The values of the intermediate variables are sometimes called the __primal trace__.
 
-| Intermediate Vars.                | Expressions               | Values (Primal Trace)| 
-|:---------------------------------:|:-------------------------:|:--------------------:|
-| $v_0$                             | $x$                       | 3                    |
-| $v_1$                             | $2v_0 = 2x$               | 6                    |
-| $v_2$                             | $v_1^2 = (2x)^2$          | 36                   |
-| $v_3$                             | $sin(v_2) = sin[(2x)^2]$  | sin(36)              |
+| Intermediate Vars.                | Expressions               | Expression Eval. | Values (Primal Trace)| 
+|:---------------------------------:|:-------------------------:|:---------------:|:--------------------:|
+| $v_0$                             | $x$                       | $x$             | 3                    |
+| $v_1$                             | $2v_0$                    | $2x$            | 6                    |
+| $v_2$                             | $v_1^2$                   | $(2x)^2$        | 36                   |
+| $v_3$                             | $sin(v_2)$                | $sin[(2x)^2]$   | sin(36)              |
 
 Now we extend the table for derivitives. The values of of the intermediate derivative variables are called the __tangent trace__. And we still set $x = 3$.
 
