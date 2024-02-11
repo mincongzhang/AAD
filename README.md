@@ -104,6 +104,8 @@ https://sidsite.com/posts/autodiff/
 
 https://jingnanshi.com/blog/autodiff.html
 
+https://github.com/rasmusbergpalm/nanograd/blob/main/nanograd.py
+
 https://www.cs.toronto.edu/~rgrosse/courses/csc2541_2022/tutorials/tut01.pdf
 
 https://www.cs.toronto.edu/~rgrosse/courses/csc321_2018/slides/lec10.pdf
