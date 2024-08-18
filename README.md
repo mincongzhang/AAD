@@ -91,6 +91,9 @@ int main()
 ```
 
 ## References
+Automatic Differentiation Using Gradient Tapes:
+
+https://gowrishankar.info/blog/automatic-differentiation-using-gradient-tapes/
 
 https://moodle2.units.it/pluginfile.php/393695/mod_resource/content/1/AutoDiff.pdf
 
