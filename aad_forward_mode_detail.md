@@ -6,7 +6,7 @@ There are a number of methods for writing software to compute derivatives of fun
 
 1. Symbolic differentiation: derive symbolic expressions for the derivative manually and then directly code the resulting expressions, i.e. $f(x)=x^2$, $f'(x) = 2x$
 2. Numerical differentiation: finite differences, i.e. $f'(x) = \lim_{\delta \to 0} \frac{f(x+\delta) - f(x)}{\delta}$
-3. Automatic differentiation, which provides a way to compute multiple derivatives of highly complex functions efficiently and accurately
+3. Automatic differentiation: provides a way to compute multiple derivatives of highly complex functions efficiently and accurately
 
 ## Background - Two classic approaches to computing derivatives
 
